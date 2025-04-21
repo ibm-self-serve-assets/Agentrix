@@ -1,0 +1,5 @@
+ProductID,ProductName,Category,Stock,Price
+P001,iPhone,Phones,50,999.99
+P002,iPad,Tablets,100,329.99
+P003,Mac,Computers,30,1199.99
+P004,AirPods,Accessories,200,199.0

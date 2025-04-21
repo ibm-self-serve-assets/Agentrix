@@ -1,0 +1,124 @@
+## Customer Reviews
+
+ReviewID: R001
+Text: "The iPhone is fantastic! Great build quality and very useful."
+ProductID: P001
+Sentiment: Positive
+Name: Alice
+
+ReviewID: R002
+Text: "The iPad is okay, but a bit overpriced for what it offers."
+ProductID: P002
+Sentiment: Neutral
+Name: Bob
+
+ReviewID: R003
+Text: "The Mac exceeded my expectations. Highly recommend it!"
+ProductID: P003
+Sentiment: Positive
+Name: Charlie
+
+ReviewID: R004
+Text: "The AirPods are not as good as I expected. They broke after a week."
+ProductID: P004
+Sentiment: Negative
+Name: Alice
+
+ReviewID: R005
+Text: "The iPhone is great, but could be a bit cheaper."
+ProductID: P001
+Sentiment: Positive
+Name: David
+
+ReviewID: R006
+Text: "The iPad is very useful for my daily tasks."
+ProductID: P002
+Sentiment: Positive
+Name: Bob
+
+ReviewID: R007
+Text: "The Mac is simply the best computer I have ever used."
+ProductID: P003
+Sentiment: Positive
+Name: Charlie
+
+ReviewID: R008
+Text: "The AirPods are decent, but I had some connectivity issues."
+ProductID: P004
+Sentiment: Neutral
+Name: Alice
+
+ReviewID: R009
+Text: "The iPhone is worth every penny."
+ProductID: P001
+Sentiment: Positive
+Name: Eve
+
+ReviewID: R010
+Text: "The iPad is good, but the battery life could be better."
+ProductID: P002
+Sentiment: Neutral
+Name: Frank
+
+## Social Media Mentions
+
+MentionID: M001
+Text: "Loving my new iPhone! #apple #tech"
+ProductID: P001
+Platform: Twitter
+Name: Alice
+
+MentionID: M002
+Text: "iPad is useful, but not worth the price. #reviews"
+ProductID: P002
+Platform: Twitter
+Name: Bob
+
+MentionID: M003
+Text: "Just got the new Mac, and it's amazing! #apple #computers"
+ProductID: P003
+Platform: Instagram
+Name: Charlie
+
+MentionID: M004
+Text: "The AirPods have great sound quality. #apple #accessories"
+ProductID: P004
+Platform: Instagram
+Name: Alice
+
+MentionID: M005
+Text: "The new iPhone is impressive. Can't wait to explore all its features. #apple"
+ProductID: P001
+Platform: Twitter
+Name: David
+
+MentionID: M006
+Text: "iPad is my go-to device for reading and browsing. #apple #ipad"
+ProductID: P002
+Platform: Facebook
+Name: Frank
+
+MentionID: M007
+Text: "My new Mac is a powerhouse. Perfect for my design work. #apple #mac"
+ProductID: P003
+Platform: Instagram
+Name: Charlie
+
+MentionID: M008
+Text: "The AirPods' noise cancellation is top-notch. #apple #airpods"
+ProductID: P004
+Platform: Twitter
+Name: Alice
+
+MentionID: M009
+Text: "The iPhone camera is stunning. Captures amazing photos. #apple #iphone"
+ProductID: P001
+Platform: Twitter
+Name: Eve
+
+MentionID: M010
+Text: "iPad is great for kids. They love it! #apple #techforkids"
+ProductID: P002
+Platform: Facebook
+Name: Frank
+
