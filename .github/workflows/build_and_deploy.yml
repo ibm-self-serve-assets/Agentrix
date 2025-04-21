@@ -1,18 +1,26 @@
-name: Docker Image CI
+name: Build Docker Images CI and Push to IBM CR 
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  [workflow_dispatch]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
-    steps:
+    steps:    
     - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Setup IBM Cloud CLI
+      id: ibmcloud      
+      uses: IBM/actions-ibmcloud-cli@v1
+      with:
+        api_key: ${{ secrets.IBMCLOUD_API_KEY }}
+        region: us-south
+        group: scm-watsonx-rg 
+        plugins: cr
+    - run: ibmcloud --version
+    - run: ibmcloud login --apikey ${{ secrets.IBMCLOUD_API_KEY }}
+    - run: ibmcloud target -g scm-watsonx-rg
+    - run: ibmcloud cr login --client docker
+    - name: build docker image
+      run: docker build ./app/ -t us.icr.io/ledger_intelligence/fera:latest
+    - name: push iamge to IBM CR
+      run: docker push us.icr.io/ledger_intelligence/fera:latest
