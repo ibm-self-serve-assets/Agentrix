@@ -19,6 +19,6 @@ export default defineConfig({
    port: 3000,
    strictPort: true,
    host: true,
-   origin: "http://0.0.0.0:3000",
+   origin: "https://ecomfrontend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud",
   },
  });
