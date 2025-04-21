@@ -21,6 +21,6 @@ jobs:
     - run: ibmcloud target -g Agentrix
     - run: ibmcloud cr login --client docker
     - name: build docker image
-      run: docker build ./backend/ -t us.icr.io/ecomanalysis/backend:latest
+      run: docker build ./e-commerce-analysis-agent/backend/ -t us.icr.io/ecomanalysis/backend:latest
     - name: push iamge to IBM CR
       run: docker push us.icr.io/ecomanalysis/backend:latest
