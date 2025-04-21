@@ -20,7 +20,11 @@ jobs:
     - run: ibmcloud login --apikey ${{ secrets.IBMCLOUD_API_KEY }}
     - run: ibmcloud target -g Agentrix
     - run: ibmcloud cr login --client docker
-    - name: build docker image
+    - name: build backend docker image
       run: docker build ./e-commerce-analysis-agent/backend/ -t us.icr.io/ecomanalysis/backend:latest
-    - name: push iamge to IBM CR
+    - name: push backend image to IBM CR
       run: docker push us.icr.io/ecomanalysis/backend:latest
+    - name: build frontend docker image
+      run: docker build ./e-commerce-analysis-agent/frontend/ -t us.icr.io/ecomanalysis/frontend:latest
+    - name: push frontend image to IBM CR
+      run: docker push us.icr.io/ecomanalysis/frontend:latest
