@@ -1,14 +1,14 @@
 
 
 export const startChatSession = async () => {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/api/v1/session/create`;
+    const url = 'https://ecombackend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/api/v1/session/create';
     console.log(url)
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'accept': 'application/json',
-                'X-API-Key': import.meta.env.VITE_API_KEY,
+                'X-API-Key': 'ec',
                 'Content-Type': 'application/json'
             }
         });
@@ -24,7 +24,7 @@ export const startChatSession = async () => {
 };
 
 export const askDocument = async (query: string, sessionId: string) => {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/api/v1/chat/generate`;
+    const url = 'https://ecombackend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/api/v1/chat/generate';
     const payload = {
         session_id: sessionId,
         input_data: query
@@ -35,7 +35,7 @@ export const askDocument = async (query: string, sessionId: string) => {
             method: 'POST',
             headers: {
                 'accept': 'application/json',
-                'X-API-Key': import.meta.env.VITE_API_KEY,
+                'X-API-Key': 'ec',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload)
@@ -52,13 +52,13 @@ export const askDocument = async (query: string, sessionId: string) => {
 };
 
 export const downloadPdf = async () => {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/download/report`;
+    const url = 'https://ecombackend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/download/report';
     console.log(url)
     try {
         const response = await fetch(url, {
             method: 'GET',
             headers: {
-                'X-API-Key': import.meta.env.VITE_API_KEY,
+                'X-API-Key': 'ec',
                 'Content-Type': 'application/pdf'
             }
         });
