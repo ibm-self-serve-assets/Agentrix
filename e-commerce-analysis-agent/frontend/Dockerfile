@@ -18,7 +18,7 @@ COPY . .
 RUN npm run build
 
 # Expose port 80
-EXPOSE 8080
+EXPOSE 3000
 
 # Start Nginx
 CMD ["npm", "run", "preview"]
