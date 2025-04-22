@@ -13,4 +13,5 @@ tavily-python
 langchain-experimental
 mistletoe
 python-docx
+hf_xet
 git+https://github.com/PyFPDF/fpdf2.git@master
