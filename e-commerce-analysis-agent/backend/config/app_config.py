@@ -1,5 +1,8 @@
 import os
 from enum import Enum
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ModelEnum(str, Enum):
     # Models that are good at reasoning
