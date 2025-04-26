@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+beeai-framework
+termcolor
