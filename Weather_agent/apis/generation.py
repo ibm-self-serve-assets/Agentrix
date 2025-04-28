@@ -126,8 +126,7 @@ async def generate(input_text: str) -> str:
     """
     prompt = input_text
 
-    from src.agents.travel_planner_agent import get_beeai_framework_weather_agent,get_beeai_framework_summary_agent, observer
-    from src.agents.maximo_agent import AgentMaximo
+    from src.agents.get_agent import get_beeai_framework_agent, observer
 
     # Extract number from query
     match = re.search(r'\b\d+\b', prompt)
@@ -141,7 +140,7 @@ async def generate(input_text: str) -> str:
         summary = "Missing wonum , Work order number is required."
         return summary
 
-    agent = get_beeai_framework_weather_agent()
+    agent = get_beeai_framework_agent()
 
     # workorder_prompt = f"Get the location, city, latitude, and longitude for work order number {wonum} from Maximo ."
     workorder_prompt = f"""

@@ -29,7 +29,7 @@ def process_agent_events(data, event: EventMeta) -> None:
 def observer(emitter: Emitter) -> None:
     emitter.on("*.*", process_agent_events)
 
-def get_beeai_framework_weather_agent() -> ReActAgent:
+def get_beeai_framework_agent() -> ReActAgent:
 
     llm_provider = LLMProvider()
     llm = llm_provider.get_llm("watsonx", model="meta-llama/llama-3-3-70b-instruct")
@@ -37,16 +37,5 @@ def get_beeai_framework_weather_agent() -> ReActAgent:
     return ReActAgent(
         llm=llm, 
         tools=[weather_tool,maximo_get_location,update_workorder_tool], 
-        memory=TokenMemory(llm)
-    )
-
-def get_beeai_framework_summary_agent() -> ReActAgent:
-
-    llm_provider = LLMProvider()
-    llm = llm_provider.get_llm("watsonx", model="meta-llama/llama-3-3-70b-instruct")
-
-    return ReActAgent(
-        llm=llm, 
-        tools=[], 
         memory=TokenMemory(llm)
     )
