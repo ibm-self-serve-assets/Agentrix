@@ -21,6 +21,6 @@ jobs:
     - run: ibmcloud target -g Agentrix
     - run: ibmcloud cr login --client docker
     - name: build backend docker image
-      run: docker build ./fashionapp/backend/ -t us.icr.io/ecomanalysis/backend:latest
+      run: docker build ./fashionapp/backend/ -t us.icr.io/fashionapp/backend:latest
     - name: push backend image to IBM CR
       run: docker push us.icr.io/fashionapp/backend:latest  
