@@ -23,4 +23,4 @@ jobs:
     - name: build backend docker image
       run: docker build ./fashionapp/backend/ -t us.icr.io/fashionapp/fashionapp-backend:latest
     - name: push backend image to IBM CR
-      run: docker push us.icr.io/fashionapp/backend:latest  
+      run: docker push us.icr.io/fashionapp/fashionapp-backend:latest  
