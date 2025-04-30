@@ -33,7 +33,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 # RUN npm cache clean --force
 # RUN npm install --verbose
-# RUN npm install
+RUN npm install
 COPY node_modules ./node_modules
 
 # Copy the source files
