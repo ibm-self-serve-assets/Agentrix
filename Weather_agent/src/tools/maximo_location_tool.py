@@ -7,7 +7,6 @@ class MaximoLocationTool:
     def __init__(self):
         self.api_key = os.getenv("MAXIMO_APIKEY", "")
         self.base_url = os.getenv("MAXIMO_BASE_URL", "")
-        self.cookie = os.getenv("SESSION_COOKIE", "")
 
     def get_work_order_location(self, wonum: str) -> str:
         try:
