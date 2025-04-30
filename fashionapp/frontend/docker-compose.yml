@@ -1,0 +1,56 @@
+# version: '3.8'
+
+# services:
+#   frontend:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: llm-frontend
+#     ports:
+#       - "8080:8080"
+#     volumes:
+#        - .:/code/
+#     stdin_open: true
+#     tty: true
+
+#   backend:
+#     build: ./server
+#     ports:
+#       - "5001:5001"
+#     volumes:
+#       - . :/test
+#     stdin_open: true
+#     tty: true
+
+
+version: '3'
+services:
+  react-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      #  - .:/code/
+      
+    depends_on:
+      - server
+    # env_file:
+    #   - .env  # Specify the React app's .env file
+    environment:
+      - REACT_APP_API_URL=http://server:5000  # Use the Flask app's Docker service name here
+
+  server:
+    build: ./server
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/usr/src/app
+    env_file:
+      - ./server/.env  # Specify the Flask app's .env file
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py  # Set the FLASK_APP environment variable to app.py
+

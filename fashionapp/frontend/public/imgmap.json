@@ -1,0 +1,266 @@
+[
+  {
+    "id": "1",
+    "category": "men apparel",
+    "description": "Tailored Wool Blazer",
+    "imgfilepath": "imagerepo/image1.png"
+  },
+  {
+    "id": "2",
+    "category": "men apparel",
+    "description": "Cashmere Overcoat",
+    "imgfilepath": "imagerepo/image2.png"
+  },
+  {
+    "id": "3",
+    "category": "men apparel",
+    "description": "Silk-Lined Leather Jacket",
+    "imgfilepath": "imagerepo/image3.png"
+  },
+  {
+    "id": "4",
+    "category": "men apparel",
+    "description": "Cashmere Turtleneck",
+    "imgfilepath": "imagerepo/image4.png"
+  },
+  {
+    "id": "5",
+    "category": "men apparel",
+    "description": "Slim-Fit Japanese Denim Jeans",
+    "imgfilepath": "imagerepo/image5.png"
+  },
+  {
+    "id": "6",
+    "category": "men apparel",
+    "description": "Italian Wool Trousers",
+    "imgfilepath": "imagerepo/image6.png"
+  },
+  {
+    "id": "7",
+    "category": "men apparel",
+    "description": "Luxe Cotton Polo Shirt",
+    "imgfilepath": "imagerepo/image7.png"
+  },
+  {
+    "id": "8",
+    "category": "men apparel",
+    "description": "Silk Dress Shirt",
+    "imgfilepath": "imagerepo/image8.png"
+  },
+  {
+    "id": "9",
+    "category": "men apparel",
+    "description": "Handcrafted Suede Bomber",
+    "imgfilepath": "imagerepo/image9.png"
+  },
+  {
+    "id": "10",
+    "category": "women footwear",
+    "description": "Crystal-Embellished Stilettos",
+    "imgfilepath": "imagerepo/image10.png"
+  },
+  {
+    "id": "11",
+    "category": "women footwear",
+    "description": "Patent Leather Pumps",
+    "imgfilepath": "imagerepo/image11.png"
+  },
+  {
+    "id": "12",
+    "category": "women footwear",
+    "description": "Lace-Up Leather Sandals",
+    "imgfilepath": "imagerepo/image12.png"
+  },
+  {
+    "id": "13",
+    "category": "women footwear",
+    "description": "Velvet Ankle Boots",
+    "imgfilepath": "imagerepo/image13.png"
+  },
+  {
+    "id": "14",
+    "category": "women footwear",
+    "description": "Pearl-Studded Ballet Flats",
+    "imgfilepath": "imagerepo/image14.png"
+  },
+  {
+    "id": "15",
+    "category": "women footwear",
+    "description": "Designer High-Top Sneakers",
+    "imgfilepath": "imagerepo/image15.png"
+  },
+  {
+    "id": "16",
+    "category": "men footwear",
+    "description": "Handmade Monk strap shoes",
+    "imgfilepath": "imagerepo/image16.png"
+  },
+  {
+    "id": "17",
+    "category": "men footwear",
+    "description": "Italian leather oxfords",
+    "imgfilepath": "imagerepo/image17.png"
+  },
+  {
+    "id": "18",
+    "category": "men footwear",
+    "description": "Suede Chelsea Boots",
+    "imgfilepath": "imagerepo/image18.png"
+  },
+  {
+    "id": "19",
+    "category": "men footwear",
+    "description": "Exotic skin loafers",
+    "imgfilepath": "imagerepo/image19.png"
+  },
+  {
+    "id": "20",
+    "category": "men footwear",
+    "description": "Classic leather derby shoes",
+    "imgfilepath": "imagerepo/image20.png"
+  },
+  {
+    "id": "21",
+    "category": "men footwear",
+    "description": "Luxury running sneakers",
+    "imgfilepath": "imagerepo/image21.png"
+  },
+  {
+    "id": "22",
+    "category": "fragrance&beauty",
+    "description": "Signature Oud Perfumes",
+    "imgfilepath": "imagerepo/image22.png"
+  },
+  {
+    "id": "23",
+    "category": "fragrance&beauty",
+    "description": "Limited Edition Cologne",
+    "imgfilepath": "imagerepo/image23.png"
+  },
+  {
+    "id": "24",
+    "category": "fragrance&beauty",
+    "description": "Gold-Infused Face Serums",
+    "imgfilepath": "imagerepo/image24.png"
+  },
+  {
+    "id": "25",
+    "category": "fragrance&beauty",
+    "description": "Velvet Matte Lipsticks",
+    "imgfilepath": "imagerepo/image25.png"
+  },
+  {
+    "id": "26",
+    "category": "fragrance&beauty",
+    "description": "Cashmere Scented Candles",
+    "imgfilepath": "imagerepo/image26.png"
+  },
+  {
+    "id": "27",
+    "category": "women accessories",
+    "description": "Signature Silk Scarve",
+    "imgfilepath": "imagerepo/image27.png"
+  },
+  {
+    "id": "28",
+    "category": "men accessories",
+    "description": "Embellished Leather Belts",
+    "imgfilepath": "imagerepo/image28.png"
+  },
+  {
+    "id": "29",
+    "category": "men accessories",
+    "description": "Handcrafted Cufflinks",
+    "imgfilepath": "imagerepo/image29.png"
+  },
+  {
+    "id": "30",
+    "category": "women accessories",
+    "description": "Statement Brooches",
+    "imgfilepath": "imagerepo/image30.png"
+  },
+  {
+    "id": "31",
+    "category": "women accessories",
+    "description": "Luxury Watches (Swiss-made)",
+    "imgfilepath": "imagerepo/image31.png"
+  },
+  {
+    "id": "32",
+    "category": "women accessories",
+    "description": "Gold-Plated Sunglasses",
+    "imgfilepath": "imagerepo/image32.png"
+  },
+  {
+    "id": "33",
+    "category": "women accessories",
+    "description": "Fur-Lined Leather Gloves",
+    "imgfilepath": "imagerepo/image33.png"
+  },
+  {
+    "id": "34",
+    "category": "women accessories",
+    "description": "Diamond Stud Earrings",
+    "imgfilepath": "imagerepo/image34.png"
+  },
+  {
+    "id": "35",
+    "category": "women accessories",
+    "description": "Pearl Necklaces",
+    "imgfilepath": "imagerepo/image35.png"
+  },
+  {
+    "id": "36",
+    "category": "men accessories",
+    "description": "Monogrammed Silk Ties",
+    "imgfilepath": "imagerepo/image36.png"
+  },
+  {
+    "id": "37",
+    "category": "women accessories",
+    "description": "Crocodile Leather Handbag",
+    "imgfilepath": "imagerepo/image37.png"
+  },
+  {
+    "id": "38",
+    "category": "men accessories",
+    "description": "Cardholders with Gold Detailing",
+    "imgfilepath": "imagerepo/image38.png"
+  },
+  {
+    "id": "39",
+    "category": "women accessories",
+    "description": "Quilted Lambskin Shoulder Bag",
+    "imgfilepath": "imagerepo/image39.png"
+  },
+  {
+    "id": "40",
+    "category": "women accessories",
+    "description": "Embossed Leather Tote",
+    "imgfilepath": "imagerepo/image40.png"
+  },
+  {
+    "id": "41",
+    "category": "women accessories",
+    "description": "Handwoven Rattan Clutch",
+    "imgfilepath": "imagerepo/image41.png"
+  },
+  {
+    "id": "42",
+    "category": "men accessories",
+    "description": "Exotic Skin Wallets",
+    "imgfilepath": "imagerepo/image42.png"
+  },
+  {
+    "id": "43",
+    "category": "men accessories",
+    "description": "Engraved Money Clips",
+    "imgfilepath": "imagerepo/image43.png"
+  },
+  {
+    "id": "44",
+    "category": "men accessories",
+    "description": "Premium Leather Passport Holder",
+    "imgfilepath": "imagerepo/image44.png"
+  }
+]

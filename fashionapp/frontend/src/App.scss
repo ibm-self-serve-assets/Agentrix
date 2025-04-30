@@ -1,0 +1,80 @@
+// @import "https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:400,600&display=swap";
+// @import '@carbon/themes/scss/themes';
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$g100,
+);
+@use '@carbon/react';
+@use '@carbon/grid';
+
+// Emit the flex-grid styles
+@include grid.flex-grid();
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cds--btn.cds--btn--icon-only.cds--header__action svg {
+  fill: white;
+}
+// spinner classes
+.loading-overlay {
+  position: fixed; /* Ensures it stays in one position relative to the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Creates a translucent dark background */
+  display: flex;
+  justify-content: center; /* Centers the spinner horizontally */
+  align-items: center; /* Centers the spinner vertically */
+  z-index: 1000; /* Ensures it is above other elements */
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column; /* Stacks spinner and text vertically */
+  align-items: center; /* Centers both items horizontally */
+  text-align: center;
+  gap: 10px; /* Adjust the gap between spinner and text */
+}
+
+.loading-content span {
+  color: white; /* Makes the text color stand out on the translucent background */
+  font-family: 'IBM Plex Sans', sans-serif; /* Keeps consistent typography */
+  font-size: 20px; /* Adjust the size as needed */
+  font-weight: 500; /* Slightly bold for better visibility */
+}

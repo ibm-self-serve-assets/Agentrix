@@ -1,0 +1,68 @@
+[
+    {
+        "user_id": 1,
+        "user_fullname": "Maria Adams",
+        "user_email": "maria@xyz.com",
+        "user_username": "Maria Adams",
+        "user_pwd": "123",
+        "gender":"female",
+        "age": "32",
+        "weight": "56",
+        "height": "171",
+        "bodyshape": "Pear",
+        "user_events":[ {
+            "event_id": 11,
+            "event_name": "Business Trip",
+            "event_description": "Attending World Business Conference to represent organization",
+            "event_location": "Paris",
+            "event_date": "11th November 2025",
+            "bgColor": "#001d6c"
+        }],
+        "wardrobe_items": [51, 47, 22, 11, 14, 25],
+        "flow": "existing_user"
+    },
+    {
+        "user_id": 2,
+        "user_fullname": "John Doe",
+        "user_email": "john@xyz.com",
+        "user_username": "John Doe",
+        "user_pwd": "123",
+        "gender":"male",
+        "age": "29",
+        "weight": "89",
+        "height": "183",
+        "bodyshape": "Oval",
+        "user_events":[ {
+            "event_id": 21,
+            "event_name": "Business Trip",
+            "event_description": "Attending World Business Conference to represent organization",
+            "event_location": "Paris",
+            "event_date": "25 March 2025",
+             "bgColor": "#001d6c"
+        }],
+        "wardrobe_items": [1,4, 5, 7, 16, 22],
+        "flow": "existing_user"
+    },
+    {
+        "user_id": 3,
+        "user_fullname": "Jessica Evans",
+        "user_email": "jessica@xyz.com",
+        "user_username": "Jessica Evans",
+        "user_pwd": "123",
+        "gender":"female",
+        "age": "36",
+        "weight": "68",
+        "height": "167",
+        "bodyshape": "Petite",
+        "user_events":[ {
+            "event_id": 31,
+            "event_name": "Business Trip",
+            "event_description": "Attending World Business Conference to represent organization",
+            "event_location": "Paris",
+            "event_date": "11th November 2025",
+            "bgColor": "#001d6c"
+        }],
+        "wardrobe_items": [40,49,37,45,25,27],
+        "flow": "existing_user"
+    }
+]

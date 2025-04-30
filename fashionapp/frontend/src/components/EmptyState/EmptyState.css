@@ -1,0 +1,11 @@
+.empty-state {
+  height: 200px;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  color: black;
+}
+.rotate-image {
+  transform: rotate(25deg);
+}
