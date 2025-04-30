@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react-router-dom": "^5.3.3",
     "@wmik/use-media-recorder": "^1.6.5-beta.0",
-    "axios": "^1.6.8",
+    "axios": "^1.8.2",
     "carbon-components": "^10.58.12",
     "carbon-components-react": "^8.54.0",
     "cors": "^2.8.5",
