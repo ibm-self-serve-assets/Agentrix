@@ -8,7 +8,6 @@ class MaximoTool:
     def __init__(self):
         self.api_key = os.getenv("MAXIMO_APIKEY", "")
         self.base_url = os.getenv("MAXIMO_BASE_URL", "")
-        self.cookie = os.getenv("SESSION_COOKIE", "")
 
 
     def get_workorder_url(self, wonum: str, siteid: str = "BEDFORD") -> str:
