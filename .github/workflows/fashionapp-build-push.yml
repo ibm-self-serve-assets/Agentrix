@@ -1,0 +1,26 @@
+name: Fashion App Build Docker Images and Push to IBM CR
+
+on:
+  [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:    
+    - uses: actions/checkout@v4
+    - name: Setup IBM Cloud CLI
+      id: ibmcloud      
+      uses: IBM/actions-ibmcloud-cli@v1
+      with:
+        api_key: ${{ secrets.IBMCLOUD_API_KEY }}
+        region: us-south
+        group: Agentrix 
+        plugins: cr
+    - run: ibmcloud --version
+    - run: ibmcloud login --apikey ${{ secrets.IBMCLOUD_API_KEY }}
+    - run: ibmcloud target -g Agentrix
+    - run: ibmcloud cr login --client docker
+    - name: build backend docker image
+      run: docker build ./fashionapp/backend/ -t us.icr.io/ecomanalysis/backend:latest
+    - name: push backend image to IBM CR
+      run: docker push us.icr.io/fashionapp/backend:latest  
