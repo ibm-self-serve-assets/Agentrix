@@ -34,7 +34,7 @@ COPY package.json package-lock.json ./
 # RUN npm cache clean --force
 # RUN npm install --verbose
 RUN npm install
-COPY node_modules ./node_modules
+#COPY node_modules ./node_modules
 
 # Copy the source files
 COPY . .
