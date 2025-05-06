@@ -166,19 +166,29 @@ async def generate(input_text: str) -> str:
         )
     ).observe(observer)
 
-    print("location response from maximo tool = ",location_response)
+    print(f" [{datetime.now().isoformat()}]  location response from maximo tool = ",location_response)
     location_summary = '\n'.join([m.text for m in location_response.result.content])
 
-
-
-    # weather_prompt = f"Give the weather forecast of {coords['CITY']} for given {coords['LONGITUDEX']} and {coords['LATITUDEY']} coordinates."
-    # weather_prompt = f"Give the weather forecast of {location_response} coordinates."
     weather_prompt = f"""
-    Using the provided coordinates from the location summary ({location_response}), generate a weather summary.
+    You are assisting in evaluating whether a work order should proceed based on the current weather conditions.
 
-    Respond with a sentence like:
+    Given:
+    - A location summary: {location_response}
+
+    Your tasks:
+    1. Get the weather forecast of {location_response} coordinates.
+    2. **Summarize the weather** in a sentence like:
     "The current weather at <City> is <temperature>°C, with a wind speed of <wind speed> m/s."
+
+    3. **Make a scheduling decision** using these rules:
+    - If **heavy rain**, **storms**, **wind speed > 10 m/s**, or **temperature < 5°C or > 40°C**, then say:  
+        "Based on the current weather conditions, it is recommended to delay the work order. "
+    - Otherwise, say:  
+        "Based on the current weather conditions, it is recommended to schedule the work order."
+
+    Only respond with the weather summary followed by the scheduling decision. Do not call any tools or fetch new data.
     """
+
 
     weather_response = await agent.run(
             weather_prompt,
@@ -190,74 +200,32 @@ async def generate(input_text: str) -> str:
             )
         ).observe(observer)
     
+    print(f" [{datetime.now().isoformat()}]  weather response from weather tool = ",weather_response)
     weather_summary = '\n'.join([m.text for m in weather_response.result.content])
-    
-    # summary_prompt = f"The weather forecast is:\n{weather_response}\n\nBased on this, should we schedule the work order or delay it?"
-    summary_prompt = f"""
-        You are helping to determine if a work order should proceed based on weather conditions.
-
-        Here is the weather forecast:
-        {weather_response}
-
-        Your response should include:
-        1. A clear decision based on these rules:
-            - If **heavy rain**, **storms**, **wind speeds above 10 m/s**, or **temperature below 5°C or above 40°C** → conclude: "Delay the work order."
-            - Otherwise → conclude: "Schedule the work order."
-
-        Example format:
-        "Based on the current weather conditions, it is recommended to <schedule or delay> the work order."
-        """
-
-
-
-    summary_response = await agent.run(
-        summary_prompt,
-        execution=AgentExecutionConfig(
-            max_retries_per_step=3,
-            total_max_retries=10,
-            max_iterations=20
-        )
-    ).observe(observer)
-
-    summary = '\n'.join([m.text for m in summary_response.result.content])
-    print("final summary after all agents = ",summary)
-
-    # update_prompt = f"""
-    # Based on the earlier decision: **{summary_response}** for work order **{wonum}**, follow these rules:
-
-    # - If the decision is **schedule**, then:
-    # - Set `sched_start` as today's UTC date and time.
-    # - Set `sched_finish` as the date and time exactly **3 days after** `sched_start`.
-
-    # - If the decision is **delay**, then:
-    # - Determine the **next good date** (based on recent weather analysis or default to 5 days later) for `sched_start`.
-    # - Set `sched_finish` as the date and time **3 days after** this `sched_start`.
-
-    # Now use the tool `update_workorder_tool` to update the work order schedule in Maximo. Provide the input in this format:
-
-    #     [wonum],[sched_start],[sched_finish]
-
-    # Respond only with the result of the tool execution.
-    # """
 
     update_prompt = f"""
-    Based on the earlier decision (**{summary_response}**) for work order **{wonum}**, determine the updated scheduling dates:
+        Based on the earlier decision (**{weather_response}**) for work order **{wonum}**, determine the updated scheduling dates:
 
-    - If the decision is to **schedule**, set:
-    - `Scheduled Start Date` as today's UTC date.
-    - `Scheduled Finish Date` exactly 3 days after the start date.
+        - If the decision is to **schedule**, set:
+        - `Scheduled Start Date` as today's UTC date.
+        - `Scheduled Finish Date` exactly 3 days after the start date.
 
-    - If the decision is to **delay**, then:
-    - Find the next good weather date (or default to 5 days later).
-    - Set the `Scheduled Start Date` to that date.
-    - Set the `Scheduled Finish Date` 3 days after that.
+        - If the decision is to **delay**, then:
+        - Set the `Scheduled Start Date` to 5 days later of that date.
+        - Set the `Scheduled Finish Date` 3 days after that.
 
-    After updating in Maximo, return the response in this full sentence format:
-    "<tool execution result>.  \n
-    Scheduled Start Date: <sched_start>  
-    Scheduled Finish Date: <sched_finish>. "
-    """
+        After updating in Maximo, return the response in this format:
 
+        If delayed:  
+        "Due to bad weather next schedule date successfully updated in Maximo.  
+        Scheduled Start Date: <sched_start>  
+        Scheduled Finish Date: <sched_finish>."
+
+        If scheduled:  
+        "Work order schedule date successfully updated in Maximo.  
+        Scheduled Start Date: <sched_start>  
+        Scheduled Finish Date: <sched_finish>."
+        """
 
     update_response = await agent.run(
         update_prompt,
@@ -272,7 +240,7 @@ async def generate(input_text: str) -> str:
     update_summary = '\n'.join([m.text for m in update_response.result.content])
 
     if weather_summary or location_summary or update_summary:
-        final_summary = location_summary + weather_summary +  summary + update_summary
+        final_summary = location_summary + weather_summary  + update_summary
         print("final summary after all agents = ",final_summary)
     else:
         final_summary = "Agent execution did not return any output. Check input or agent responses."
