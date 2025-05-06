@@ -1,0 +1,5 @@
+WATSONX_PROJECT_ID = xxxxxxx
+WATSONX_API_KEY = xxxxxxx
+WATSONX_API_URL="https://us-south.ml.cloud.ibm.com"
+MAXIMO_APIKEY = xxxxxxx
+MAXIMO_BASE_URL = "https://xxxxxxxxxx.cloud/"
