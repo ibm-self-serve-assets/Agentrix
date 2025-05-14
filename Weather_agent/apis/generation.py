@@ -241,6 +241,25 @@ async def generate(input_text: str) -> str:
 
     if weather_summary or location_summary or update_summary:
         final_summary = location_summary + weather_summary  + update_summary
+        # summary_prompt = """ You are a helpful assistant scheduling Maximo work orders based on weather. The variable  {final_summary} contains the raw decision output (e.g., location, weather, and scheduling info).
+
+        # Respond to the user's **{input_text}** naturally and conversationally:
+
+        # Use `summary` to guide your answer but **don’t repeat it verbatim** — rephrase it based on input text.
+        # """
+
+        # summary_response = await agent.run(
+        # summary_prompt,
+        # execution=AgentExecutionConfig(
+        #     max_retries_per_step=3,
+        #     total_max_retries=10,
+        #     max_iterations=5,
+        #     # tools=update_workorder_tool
+        #     )
+        # ).observe(observer)
+
+        # final_summary = '\n'.join([m.text for m in summary_response.result.content])
+
         print("final summary after all agents = ",final_summary)
     else:
         final_summary = "Agent execution did not return any output. Check input or agent responses."
