@@ -25,7 +25,7 @@ class MaximoWorkOrderTool:
                 "apikey": self.api_key,
                 "lean": "1",
                 "ignorecollectionref": "1",
-                "oslc.select": "wonum,description",
+                "oslc.select": "wonum,description,siteid",
                 "oslc.where": f'wonum="{wonum}"'
             }
 
@@ -37,7 +37,8 @@ class MaximoWorkOrderTool:
                     work_order = data["member"][0]
                     return {
                         "wonum": work_order.get("wonum", "N/A"),
-                        "description": work_order.get("description", "N/A")
+                        "description": work_order.get("description", "N/A"),
+                        "siteid": work_order.get("siteid", "N/A")
                     }
                 else:
                     return {"error": "No work order found with the given WONUM."}
@@ -46,31 +47,7 @@ class MaximoWorkOrderTool:
         except Exception as e:
             return {"error": f"Request failed: {str(e)}"}
 
-def fetch_workorder_description_tool(wonum: str) -> str:
-    """
-    Retrieve work order number and description from Maximo.
 
-    Args:
-        wonum (str): The Work Order Number.
-
-    Returns:
-        str: A formatted string summarizing the work order details.
-    """
-    try:
-        maximo_tool = MaximoWorkOrderTool()
-        result = maximo_tool.fetch_workorder_description(wonum)
-        if "error" not in result:
-            return (
-                f"Work Order Number: {result['wonum']}\n"
-                f"Description: {result['description']}"
-            )
-        else:
-            return result["error"]
-    except Exception as e:
-        return (
-            "An error occurred while invoking the tool fetch_workorder_description. "
-            f"Logs: {str(e)}"
-        )
 
 @tool
 def fetch_workorder_description(wonum: str) -> StringToolOutput:
@@ -88,7 +65,8 @@ def fetch_workorder_description(wonum: str) -> StringToolOutput:
     if isinstance(work_order_info, dict) and "error" not in work_order_info:
         return (
             f"Work Order Number: {work_order_info['wonum']}\n"
-            f"Description: {work_order_info['description']}"
+            f"Description: {work_order_info['description']}\n"
+            f"SiteId:{work_order_info['siteid']}"
         )
     else:
         return work_order_info.get("error", "Unknown error occurred.")

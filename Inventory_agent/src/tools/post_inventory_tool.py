@@ -19,7 +19,7 @@ class MaximoInventoryTool:
             dict: A dictionary with itemnum and storeloc, or error.
         """
         try:
-            url = f"{self.base_url}/maximo/api/os/MXINVENTORY"
+            url = f"{self.base_url}maximo/api/os/MXINVENTORY"
             query = f'?lean=1&ignorecollectionref=1&oslc.select=itemnum,location&oslc.where=itemnum="{itemnum}"'
 
             headers = {
@@ -28,20 +28,30 @@ class MaximoInventoryTool:
                 "apikey": self.api_key
             }
 
+            print(url+query)
             res = requests.get(url + query, headers=headers, verify=False)
+        
+            print("\nGet item URL Response:", res.status_code)
 
             if res.status_code == 200:
+                print("Data = ", res)
                 data = res.json()
                 if "member" in data and len(data["member"]) > 0:
-                    items = data["member"][0]
-                    return {
+                    items = data["member"][0]  # Assuming you want the first match
+                    storeloc = items.get("location", "N/A")
+                    print("mxapiitem response = ", storeloc)
+
+                    result = {
                         "itemnum": items.get("itemnum", "N/A"),
-                        "storeloc": items.get("location", "N/A")
+                        "storeloc": storeloc
                     }
+
+                    print("Response from Maximo API = ", result)
+                    return result
                 else:
-                    return {"error": "No items found for the given item number."}
-            else:
-                return {"error": f"Failed to fetch item. Status code: {res.status_code}"}
+                    print("No items found.")
+                    return {"error": "No items found"}
+            return {"error": f"Failed to fetch item. Status code: {res.status_code}"}
         except Exception as e:
             return {"error": f"Request failed: {str(e)}"}
 

@@ -5,7 +5,6 @@ from beeai_framework.emitter import Emitter, EventMeta
 from beeai_framework.errors import FrameworkError
 from src.core.llm_provider import LLMProvider
 
-from src.tools.weather_tool import weather_tool
 from src.tools.get_workorder_description_tool import fetch_workorder_description
 from src.tools.get_inventory_item_detail_tool import maximo_get_item_details
 from src.tools.post_inventory_tool import post_inventory
@@ -37,6 +36,6 @@ def get_beeai_framework_agent() -> ReActAgent:
 
     return ReActAgent(
         llm=llm, 
-        tools=[weather_tool,fetch_workorder_description,maximo_get_item_details,post_inventory], 
+        tools=[fetch_workorder_description,maximo_get_item_details,post_inventory], 
         memory=TokenMemory(llm)
     )

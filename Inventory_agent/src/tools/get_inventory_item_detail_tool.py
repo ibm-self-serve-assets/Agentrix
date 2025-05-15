@@ -19,64 +19,55 @@ class MaximoItemTool:
         Returns:
             dict: A dictionary containing item number and description, or an error.
         """
+        print("base url = ", self.base_url)
+        base_url = f"{self.base_url}/maximo/api/os/MXAPIITEM"
+        inventory_response_list = ast.literal_eval(inventory_response)
+        # Properly format the search condition using each item from the response
+        # Use single quotes for descriptions in the OSLC query
+        search_condition = [f'"%{item}%"' for item in inventory_response_list]
+        formatted_cond = f'[{",".join(search_condition)}]'
+        word="description"
+        formatted_string = f"{word} in {formatted_cond}"
+        print("Search Condition: ", formatted_string)
+
+        query_params = {
+            "apikey": self.api_key,
+            "lean": "1",
+            "ignorecollectionref": "1",
+            "oslc.select": "itemnum,description",
+            "oslc.where": formatted_string
+        }
+
+        # Making the GET request to the Maximo API
         try:
-            base_url = f"{self.base_url}/maximo/api/os/MXAPIITEM"
-
-            inventory_response_list = ast.literal_eval(inventory_response)
-            search_condition = [f'"%{item}%"' for item in inventory_response_list]
-            formatted_cond = f'[{",".join(search_condition)}]'
-            formatted_string = f'description in {formatted_cond}'
-
-            query_params = {
-                "apikey": self.api_key,
-                "lean": "1",
-                "ignorecollectionref": "1",
-                "oslc.select": "itemnum,description",
-                "oslc.where": formatted_string
-            }
-
             response = requests.get(base_url, params=query_params, verify=False)
 
+            print("Response: ", response)
             if response.status_code == 200:
                 data = response.json()
+                print("Data = ", data)
                 if "member" in data and len(data["member"]) > 0:
-                    item = data["member"][0]  # Taking the first matching item
-                    return {
-                        "itemnum": item.get("itemnum", "N/A"),
-                        "description": item.get("description", "N/A")
+                    items = data["member"][0]  # Assuming you want the first match
+                    desc_details = items.get("description", "N/A")
+                    print("mxapiitem response = ", desc_details)
+
+                    result = {
+                        "itemnum": items.get("itemnum", "N/A"),
+                        "description": desc_details
                     }
+
+                    print("Response from Maximo API = ", result)
+                    return result
                 else:
-                    return {"error": "No matching items found."}
+                    print("No items found.")
+                    return {"error": "No items found"}
             else:
+                print(f"Error: {response.status_code} - {response.text}")
                 return {"error": f"Failed to fetch data, status code {response.status_code}"}
-        except Exception as e:
-            return {"error": f"Request failed: {str(e)}"}
+        except requests.exceptions.RequestException as e:
+            print(f"Request failed: {e}")
+            return {"error": "Request failed"}
 
-def maximo_get_item_details_tool(inventory_response: str) -> str:
-    """
-    Retrieve item number and description from Maximo Inventory based on input descriptions.
-
-    Args:
-        inventory_response (str): A stringified list of item descriptions.
-
-    Returns:
-        str: A formatted string summarizing the item details.
-    """
-    try:
-        maximo_tool = MaximoItemTool()
-        result = maximo_tool.get_item_details(inventory_response)
-        if "error" not in result:
-            return (
-                f"Item Number: {result['itemnum']}\n"
-                f"Description: {result['description']}"
-            )
-        else:
-            return result["error"]
-    except Exception as e:
-        return (
-            "An error occurred while invoking the tool maximo_get_item_details. "
-            f"Logs: {str(e)}"
-        )
 
 @tool
 def maximo_get_item_details(inventory_response: str) -> StringToolOutput:

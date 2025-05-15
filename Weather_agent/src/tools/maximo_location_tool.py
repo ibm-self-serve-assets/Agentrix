@@ -74,39 +74,6 @@ class MaximoLocationTool:
                     "CITY": service.get("city", "N/A")
                 }
         return {"LONGITUDEX": "N/A", "LATITUDEY": "N/A", "CITY": "N/A"}
-    
-def maximo_get_location_tool(wonum: str) -> str:
-    """
-    Retrieve Maximo work order location and service address details.
-
-    Args:
-        wonum (str): The Work Order Number for which to retrieve location and service address data.
-
-    Returns:
-        str: A string summarizing the work order's location, coordinates, and city.
-
-    Example:
-        wonum = "1201"
-    """
-    try:
-        maximo_tool = MaximoLocationTool()
-        result = maximo_tool.get_work_order_location(wonum)
-        if result:
-            return (
-                f"Work Order: {result['wonum']}\n"
-                f"Location: {result['location']}\n"
-                f"Service Address Code: {result['saddresscode']}\n"
-                f"City: {result['CITY']}\n"
-                f"Latitude: {result['LATITUDEY']}, Longitude: {result['LONGITUDEX']}"
-            )
-        else:
-            return "No data found for the given work order number."
-    except Exception as e:
-        return (
-            "An error occurred while invoking the tool maximo_get_location. "
-            f"Here is the log. Try analyzing it and retry with a different payload. Logs: {str(e)}"
-        )
-
 
 @tool
 def maximo_get_location(wonum: str) -> StringToolOutput:
