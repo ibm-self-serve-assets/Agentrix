@@ -202,7 +202,7 @@ async def generate(input_text: str) -> str:
     
     summary = description_summary + inventory_summary + post_inventory_summary
 
-    summary_prompt = f""" You are a helpful assistant scheduling Maximo work orders based on weather. The variable  {summary} contains the raw decision output (e.g., location, weather, and scheduling info).
+    summary_prompt = f""" You are a helpful assistant to get inventory added in maximo. The variable  {summary} contains the raw decision output (e.g., issue description , tools, and inventoy scheduling info).
 
         Respond to the user's **{input_text}** naturally and conversationally:
 
