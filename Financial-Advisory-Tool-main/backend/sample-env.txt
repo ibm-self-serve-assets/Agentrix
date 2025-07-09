@@ -1,0 +1,21 @@
+WATSONX_API_KEY        <your api key >
+WATSONX_PROJECT_ID=    < your project id >
+WATSONX_URL=           <  url  >  
+LLM_ID=                < model >                    < Use large context model >
+TOKEN_LIMIT=           < token >                    < suggestion is 4000 >
+TEMPERATURE=           < temeperature of Model >    < for determininistic suggestion is 0.45 >
+
+
+
+Note :
+
+Add watsonx before model id available on IBM cloud :-
+
+example : watsonx/meta-llama/llama-3-3-70b-instruct
+
+Watsonx Url
+
+example : https://us-south.ml.cloud.ibm.com
+
+
+

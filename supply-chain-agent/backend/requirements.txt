@@ -1,0 +1,18 @@
+# Core packages
+pandas
+streamlit
+
+# Forecasting
+prophet # Can also use 'fbprophet' if older version
+matplotlib
+
+#utils
+python-dateutil
+python-dotenv
+
+
+# Optional visualization
+# plotly
+
+# pulp
+

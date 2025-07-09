@@ -1,0 +1,15 @@
+question_task:
+  description: >
+    Answer the asked Kubernetes/OpenShift question: {question}. Do not make-up any answers. 
+    Make sure that the answers are always factually correct.
+  expected_output: >
+    Answer of the asked Kubernetes/OpenShift question
+  agent: assistant
+
+reviewer_task:
+  description: >
+    Review the provided Kubernetes code/commands or explanations/answers for factual correctness and best practices
+  expected_output: >
+    Either the response from question_task as is or the modified response after review if applicable.
+  agent: reviewer
+

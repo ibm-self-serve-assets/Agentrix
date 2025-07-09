@@ -1,0 +1,25 @@
+body, html, #root {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Ensure all textareas, inputs, and buttons also use the same font */
+textarea, input, button, .markdown-body {
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Markdown table styling */
+.markdown-body table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+.markdown-body th, .markdown-body td {
+  border: 1px solid #222 !important;
+  padding: 8px !important;
+  text-align: left !important;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.markdown-body th {
+  background-color: #f2f2f2 !important;
+}

@@ -1,0 +1,36 @@
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {% include "header.html" %}
+
+<!-- Page Header-->
+<header
+        class="masthead"
+        style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    {% if msg_sent: %}
+                    <h1>Successfully sent your message</h1>
+                    {% else: %}
+                    <h1>Contact Us</h1>
+                    {% endif %}
+                    <span class="subheading">Have questions or feedback?.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>
+                    If you want to share any feedback or want to get in touch with us, you can reach out to
+                    us via email or slack:<br><br>
+                    <b>Emails: </b>{{ contact_emails }}<br><br>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+{% include "footer.html" %} {% endblock %}

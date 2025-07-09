@@ -1,0 +1,8 @@
+reviewer_task:
+  description: >
+    Review the provided Kubernetes code/commands or explanations/answers for factual correctness 
+    and best practices: {review_content}
+  expected_output: >
+    Review comments along with justification and modified result as per the review
+  agent: reviewer
+

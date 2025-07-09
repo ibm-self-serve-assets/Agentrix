@@ -1,0 +1,19 @@
+debugger_task:
+  description: >
+    Conduct a thorough debugging about the pod status: {issue}.
+    Look carefully at the details provided. Do not assume anything. 
+    Give only the answer that is factually correct.
+  expected_output: >
+    A detailed root cause analysis of the pod issue
+  agent: sre
+
+fixer_task:
+  description: >
+    Review the provided root cause analysis and recommend the solution. Provide the resolution 
+    steps in detail. If it requires to update Kubernetes object's definition files like custom resources,
+    deployments, statefulsets etc, then provide the details and recommended updates. 
+    Make sure to provide the step by step resolution details.
+  expected_output: >
+    Root cause of the problem and detailed step by step solution with appropriately prepared kubectl commands (if required) 
+    to fix the problem.
+  agent: developer

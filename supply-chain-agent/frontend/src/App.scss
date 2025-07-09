@@ -1,0 +1,68 @@
+// @import "https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed|IBM+Plex+Sans:400,600&display=swap";
+// @import '@carbon/themes/scss/themes';
+@use '@carbon/react/scss/themes';
+@use '@carbon/react/scss/theme' with (
+  $theme: themes.$g100,
+);
+@use '@carbon/react';
+@use '@carbon/grid';
+
+// Emit the flex-grid styles
+@include grid.flex-grid();
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: rgb(34,37,41);
+  color: rgb(198,198,198);
+  padding-top: 20px;
+  padding-bottom: 40px;
+  text-align: center
+}
+.bg-column-wrapper {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  color: white;
+  // text-align: center;
+}
+
+.bg-overlay {
+  // background-image: url('./Supply_Chain.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+
+.bg-supply {
+  background-image: url('/Supply_Chain.jpg');
+}
+
+.bg-insurance {
+  background-image: url('/insurance-image.jpg');
+}
+
+.bg-vehicle {
+  background-image: url('/vehicle_maintence.jpg');
+}
+
+.bg-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 4rem 2rem;
+}
+
+

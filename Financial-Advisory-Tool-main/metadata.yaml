@@ -1,0 +1,11 @@
+# metadata.yaml
+
+tile_name: "<tile_name>"
+short_description: "<short_description>"
+long_description: "<long_description>"
+demo_explainer: "<demo_explainer>"
+architecture_diagram: "<architecture_diagram>"
+repository_url: "<repository_url>" # Leave blank, will be updated after deployment
+models_used: "<models_used>"
+ibm_products: "<ibm_products>"
+app_url: ""  # Leave blank, will be updated after deployment

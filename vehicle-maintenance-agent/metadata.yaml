@@ -1,0 +1,9 @@
+tile_name: Vehicle Maintenance Agent
+short_description: An AI agent that helps users manage vehicle maintenance tasks.
+long_description: An AI agent designed to assist users in managing their vehicle maintenance tasks, providing reminders, scheduling services, and offering advice on vehicle care.
+demo_explainer: demp-explainer.md
+architecture_diagram: vehicle-maintenance-agent.drawio
+repository_url: <repository_url> # Leave blank, will be updated after deployment
+models_used: meta-llama/llama-3-2-90b-vision-instruct
+ibm_products: watsonx Orchestrate
+app_url: ""  # Leave blank, will be updated after deployment

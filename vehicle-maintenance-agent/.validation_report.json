@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "projects": {
+    "vehicle-maintenance-agent": {
+      "missing_files": [],
+      "unwanted_files": []
+    },
+    "supply-chain-agent": {
+      "missing_files": [],
+      "unwanted_files": []
+    },
+    "e-commerce-analysis-agent": {
+      "missing_files": [],
+      "unwanted_files": []
+    },
+    "fashionapp": {
+      "missing_files": [],
+      "unwanted_files": []
+    },
+    "Financial-Advisory-Tool-main": {
+      "missing_files": [],
+      "unwanted_files": []
+    },
+    "agent_template": {
+      "missing_files": [],
+      "unwanted_files": []
+    }
+  }
+}

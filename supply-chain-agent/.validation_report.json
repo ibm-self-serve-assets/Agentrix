@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "projects": {
+    "supply-chain-agent": {
+      "missing_files": [],
+      "unwanted_files": []
+    }
+  }
+}

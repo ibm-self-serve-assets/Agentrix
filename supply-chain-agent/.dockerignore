@@ -1,0 +1,57 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.log
+
+# Python virtual environment
+.venv/
+env/
+venv/
+
+# Poetry artifacts
+poetry.lock.toml
+poetry.toml
+poetry.lock
+pyproject.toml
+
+# Jupyter Notebooks
+*.ipynb
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Git and other VCS
+.git/
+.gitignore
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# OS-specific
+*.swp
+*.swo
+
+# Data, secrets, models (optional — keep if needed)
+*.db
+*.sqlite3
+*.bak
+*.env
+.env.*
+.venv/
+doclingVenv/
+
+# Streamlit cache and history
+.streamlit/
+streamlit_app.py
+test_stt.py
+.cache/
+keys
+
+
+

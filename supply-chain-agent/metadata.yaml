@@ -1,0 +1,22 @@
+tile_name: Supply Chain Automation Agent
+short_description: Autonomous multi-agent system for orchestrating supply chain operations using watsonx Orchestrate.
+long_description: |
+  The Supply Chain Automation Agent is a modular AI system built on IBM watsonx Orchestrate.
+  It simulates real-world enterprise supply chain workflows—ranging from demand forecasting 
+  and inventory planning to procurement, logistics, and compliance—by coordinating multiple 
+  specialized agents. Each agent leverages domain-specific tools and Granite LLMs to make 
+  intelligent, step-wise decisions. A controller agent orchestrates task delegation and 
+  response synthesis to streamline end-to-end supply chain operations.
+
+demo_explainer: demo-explainer.md
+architecture_diagram: supply-chain-agent.drawio
+repository_url:  # Leave blank, will be updated after deployment
+models_used:
+  - watsonx/meta-llama/llama-3-2-90b-vision-instruct
+ibm_products:
+  - watsonx Orchestrate
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Object Storage
+  - IBM Cloud Container Registry
+app_url: ""  # Leave blank, will be updated after deployment

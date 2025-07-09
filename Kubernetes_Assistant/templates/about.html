@@ -1,0 +1,35 @@
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {% include "header.html" %}
+
+<!-- Page Header-->
+<header
+        class="masthead"
+        style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="page-heading">
+                    <h1>Kubernetes Assistant</h1>
+                    <h2>Powered by CrewAI & watsonx.ai</h2>
+                    <span class="subheading">This is a demo showcasing art of possibilities</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <p>
+                    This demo has been built with CrewAI agentic framework leveraging granite3-8b-instruct
+                    and mistral-large LLMs on watsonx.ai platform. If you have any questions, please reach out
+                    to {{ contact_emails }}.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include "footer.html" %} {% endblock %}

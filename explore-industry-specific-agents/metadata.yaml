@@ -1,0 +1,18 @@
+
+tile_name: Explore industry-specific agents
+short_description: Industry-specific agents built with LangGraph and watsonx.ai LLMs showcase how agentic systems outperform standalone prompts.
+long_description: |
+A set of Industry-specific agents are preconfigured using a specific Agent Framework and watsonx.ai LLMs to demonstrate how an Agentic system can be built to answer user questions
+ more accurately and comprehensively compared to simply prompt engineering a standalone LLM. The example domain specific Agents help the user with travel planning, financial analysis and 
+ literature research. Each Agent uses the LangGraph framework and a watsonx.ai LLM along with external tools. It combines reasoning and tool calling capabilities of the underlying LLM to 
+ create an iterative flow that performs better compared to the LLM's answer based on a single prompt.
+demo_explainer: demo-explainer.md
+architecture_diagram: ecomm.drawio
+repository_url:  # Leave blank, will be updated after deployment
+models_used:
+  - watsonx/meta-llama/llama-3-3-70b-instruct
+ibm_products:
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+app_url: ""  # Leave blank, will be updated after deployment

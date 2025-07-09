@@ -1,0 +1,124 @@
+{% from "bootstrap5/form.html" import render_form %} {% block content %} {% include "header.html" %}
+
+<!-- Page Header-->
+<header
+        class="masthead"
+        style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Kubernetes Assistant</h1>
+                    <h2>Powered by CrewAI & watsonx.ai</h2>
+                    <span class="subheading">A handy tool for DevOps Engineers and SREs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<main class="mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/k8sissues.jpg');">
+                    <p class="large">Troubleshoot Kubernetes Issue</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Troubleshoot Kubernetes Issue</div>
+                        <p class="overview">Troubleshoot issues with pods in your Kubernetes cluster. The Debugger
+                         Crew powered by mistral-large LLM on watsonx.ai platform pin-points the issue and recommends
+                        remediation.</p>
+
+                        <a class="button" href="{{ url_for('connect_cluster') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/k8s-security.jpg');">
+                    <p class="large">Kubernetes Cluster Security Scan</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Kubernetes Cluster Security Scan</div>
+                        <p class="overview">Find security vulnerabilities in Kubernetes Deployment and Statefulsets.
+                            The Security Crew powered by mistral-large LLM on watsonx.ai platform pin-points the issues
+                            and recommends remediation.</p>
+
+                        <a class="button" href="{{ url_for('connect_k8scluster') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/kube-question2.jpg');">
+                    <p class="large">Ask a Kubernetes Question</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Ask a Kubernetes Question</div>
+                        <p class="overview">Ask a Kubernetes question in natural lanaguage. The Assistant Crew
+                        powered by granite-3-8b-instruct and mistral-large LLMs on watsonx.ai platform helps you
+                            with all possible details</p>
+
+                        <a class="button" href="{{ url_for('question') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/kube-review2.jpg');">
+                    <p class="large">Peer Review Kubernetes Code</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Peer Review Kubernetes Code</div>
+                        <p class="overview">Want to get your Kubernetes Code peer reviewed?
+                            The Reviewer Crew powered by granite-3-8b-instruct LLM on watsonx.ai
+                            platform reviews your Kubernetes code for performance, security & best practices.</p>
+
+                        <a class="button" href="{{ url_for('review') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/kube-explain.jpg');">
+                    <p class="large">Explain Kubernetes Code</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Explain Kubernetes Code</div>
+                        <p class="overview">Want to understand what a specific Kuberenetes code is doing?
+                            The Explainer Crew powered by granite-3-8b-instruct and mistral-large LLMs on watsonx.ai
+                            platform explains the provided Kubernetes code, making it easier for you to understand.</p>
+
+                        <a class="button" href="{{ url_for('explain') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="front" style="background-image: url('../static/assets/img/kube-gen.jpg');">
+                    <p class="large">Generate Kubernetes Code</p>
+                </div>
+                <div class="back">
+                    <div>
+                        <div class="title">Generate Kubernetes Code</div>
+                        <p class="overview">Give natural language instruction to generate required Kubernetes code.
+                            The Developer Crew powered by granite-3-8b-instruct and mistral-large LLMs on watsonx.ai
+                            platform writes the required Kubernetes code following the best practices</p>
+
+                        <a class="button" href="{{ url_for('generate_code') }}">Go</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include "footer.html" %} {% endblock %}

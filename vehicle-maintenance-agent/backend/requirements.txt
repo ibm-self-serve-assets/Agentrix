@@ -1,0 +1,13 @@
+#utils
+requests
+python-dateutil
+python-dotenv
+uvicorn
+fastapi
+ibm-watsonx-orchestrate
+
+# Optional visualization
+# plotly
+
+# pulp
+

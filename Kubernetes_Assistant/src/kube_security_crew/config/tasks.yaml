@@ -1,0 +1,15 @@
+security_scanner_task:
+  description: >
+    Scan the provided Deployment or StatefulSet yaml definition for security issues & vulnerabilities: {deploy_sts_yaml}
+    Make sure to provide the updated yaml definitions as appropriate. Also provide steps to apply the changes/fix.
+  expected_output: >
+    List of security issues/vulnerabilities along with the recommended fix
+  agent: security_analyst
+
+reviewer_task:
+  description: >
+    Review the provided Kubernetes code/commands or explanations/answers for factual correctness and best practices.
+  expected_output: >
+    Either the response from security_scanner_task as is or the modified response after review if applicable.
+  agent: reviewer
+

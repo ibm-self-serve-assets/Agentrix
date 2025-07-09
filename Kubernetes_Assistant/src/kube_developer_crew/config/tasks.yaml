@@ -1,0 +1,15 @@
+developer_task:
+  description: >
+    Write Kubernetes/OpenShift yaml code for the given requirement: {instruction} 
+    Make sure that the provided code aligns with the security best practices and is highly performant. 
+    Also provide all the steps required to deploy this code.
+  expected_output: >
+    Generated Kubernetes/OpenShift yaml files alongwith the detailed instructions/steps of deployment
+  agent: developer
+
+reviewer_task:
+  description: >
+    Review the provided Kubernetes code/commands or explanations/answers for factual correctness and best practices.
+  expected_output: >
+    Either the response from developer_task as is or the modified response after review if applicable.
+  agent: reviewer

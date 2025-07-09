@@ -1,0 +1,17 @@
+
+tile_name: Wealth Management Agent
+short_description: The Wealth Management Agent is an AI assistant that boosts investment professionals' efficiency by consolidating insights, automating tasks, and enabling faster, informed decision-making.
+long_description: |
+  The Wealth management agent is an AI-powered assistant that enhances the productivity of investment professionals by consolidating key financial insights and actions into a single interface.
+  It streamlines tasks such as retrieving and displaying investment reports, summarizing client meetings, and analyzing market performance, eliminating the need to switch between multiple tools. 
+  By providing quick access to critical information and automating routine tasks, the agent enables wealth managers to make informed decisions more efficiently, improving client engagement and overall workflow.
+demo_explainer: demo-explainer.md
+architecture_diagram: ecomm.drawio
+repository_url:  # Leave blank, will be updated after deployment
+models_used:
+  - watsonx/meta-llama/llama-3-3-70b-instruct
+ibm_products:
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+app_url: ""  # Leave blank, will be updated after deployment
