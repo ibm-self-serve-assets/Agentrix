@@ -34,31 +34,31 @@ An AI-powered Agentic-AI solution for scaling sales activities and increasing op
 **Integrations:** watsonx Orchestrate  
 Revolutionize your supply chain with our AI-powered solution, featuring autonomous WXO agents that streamline procurement, inventory, logistics, and compliance, boosting efficiency and accuracy.
 
-### 2. Vehicle Troubleshooting Assistant
+### 2. [Vehicle Troubleshooting Assistant](./vehicle-maintenance-agent)
 **Integrations:** watsonx Orchestrate  
 Meet the Vehicle Troubleshooting Assistant – your AI-powered car doctor. Describe your issue, like "My car is shaking" or "Check engine light is on," and it uses real-time data and diagnostics to provide personalized solutions and next steps.
 
-### 3. Closet Companion
+### 3. [Closet Companion](./fashionapp)
 **Integrations:** IBM watsonx.ai, LangGraph Framework, IBM Code Engine, IBM Container Registry  
 Experience personalized travel and style like never before. Our innovative platform offers tailored, real-time recommendations across devices, using dynamic event planning, wardrobe analysis, and seamless integration. The result? Accurate, engaging, and scalable suggestions that drive user satisfaction and interaction, making planning and styling effortless and fun.
 
-### 4. Wealth Manager
+### 4. [Wealth Manager](./wealth-managment-agent)
 **Integrations:** watsonx.ai, Crew AI  
 Unlock rapid insights from complex financial documents with watsonx’s generative AI. Our asset transforms extensive analysis into concise summaries and actionable intelligence, empowering investment professionals to make strategic decisions faster and with greater precision.
 
-### 5. Travel Planner
+### 5. [Travel Planner](./explore-industry-specific-agents)
 **Integrations:** watsonx.ai, LangGraph  
 Transform travel planning with our AI-powered agent, delivering personalized and seamless experiences for travelers. Our intelligent agent proactively gathers destination insights, predicts weather, and recommends tailored activities, enhancing user satisfaction and driving engagement.
 
-### 6. E-commerce Analytics
+### 6.[E-commerce Analytics](./e-commerce-analysis-agent)
 **Integrations:** watsonx.ai, Crew AI  
 Unlock the power of large language models with our Structured Chat LangChain Agent. With seamless integration of tools like SQL and RAG retriever, agents can tap into structured and unstructured data sources, providing unparalleled insights.
 
-### 7. Kubernetes Assistant
+### 7. [Kubernetes Assistant](./Kubernetes_Assistant)
 **Integrations:** watsonx.ai, Crew AI  
 Simplify Kubernetes management with our innovative assistant, powered by SRE agents and Granite code models. Troubleshoot complex issues, generate YAML definitions, deploy applications efficiently, and optimize code for performance.
 
-### 8. Financial Assistant
+### 8. [Financial Assistant](./Financial-Advisory-Tool-main)
 **Integrations:** watsonx.ai, Crew AI  
 Break free from rigid workflows with Agentic AI, featuring dynamic agents that adapt in real-time. This assistant enables financial reporting and investment management through real-time updates and intelligent decision-making.
 
