@@ -30,7 +30,7 @@ An AI-powered Agentic-AI solution for scaling sales activities and increasing op
 
 ## 🧠 Domain Agents
 
-### 1. Supply Chain Automation
+### 1. [Supply Chain Automation](./supply-chain-agent)
 **Integrations:** watsonx Orchestrate  
 Revolutionize your supply chain with our AI-powered solution, featuring autonomous WXO agents that streamline procurement, inventory, logistics, and compliance, boosting efficiency and accuracy.
 
