@@ -1,7 +1,23 @@
 
-# Agentrix catalog
+# Agentrix - A Catalogue Multi-Agent Enterprise Workflows
 
-Welcome to **Kit**, your next-gen Agentic AI framework designed to accelerate business outcomes through autonomous agents. Kit features two core categories of agents:
+Welcome to **Kit**, your next-gen Agentic AI worklfows designed to accelerate business outcomes through autonomous agents. 
+
+Single agents can do specific tasks. However, enterprise workflows are too complex for any single agent. There comes "Agentrix" , a multi-agent catalog designed for real, hard, and complex enterprise problems. With Agentrix, you can lift and shift complex workflows for problems in manufacturing, sales, supply chain or optimization workflows and integrate with products like Maximo, Decision Optimization, HashiCorp Vault without technical expertise.
+We’ll walk through real-world, complex workflows using Agentrix powered by multi-agent reasoning systems (MARS) , a new open catalog of reusable agents designed to solve hard enterprise problems at scale. It can
+
+•Compose and orchestrate agents to handle multi-step workflows.
+•Build agents for IBM stack like Maximo, Decision Optimization, and Hashi Gaurdiam Vault.
+•Use “vibe coding” to prototype intelligent workflows without deep technical overhead.
+• A lightweight and ungated experience for clients to try and accelerate the sales cycle
+• Collection of linked Seismic assets and collaterals with demos and videos to activate the client interactions
+
+Whether you're building automation, optimization, or orchestration solutions, this session will show you how to scale your thinking from single-agent scripts to collaborative, intelligent systems
+
+
+
+
+Repo features two core categories of agents:
 
 - 🚀 **Killer Agents** – High-impact, outcome-driven agents with measurable business value.
 - 🧠 **Domain Agents** – Specialized agents for industry and domain-specific use cases.
