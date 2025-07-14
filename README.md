@@ -34,8 +34,8 @@ This Agentic AI solution streamlines incident response for security administrato
 **Integrations:** Maximo, Weather APIs, BeeAI, WXO  
 Break free from rigid workflows with Agentic AI, featuring dynamic agents that adapt in real-time and automate tasks, freeing you from constant recoding and unlocking agility, and enabling a more efficient and flexible Maximo setup.
 
-### 3. Decision Optimization
-**Integrations:** WXO  
+### 3. Procurement Risk Decision Optimization
+**Integrations:** wxo, IBM Decision Optimization, CPLEX
 The Decision Optimization Agent empowers procurement teams to make faster, smarter, and cost-effective decisions by automating bid evaluations, scenario creation, and impact analysis. It dynamically optimizes procurement plans using user-defined what-if inputs and constraints through CPLEX-based solvers and intelligent agents. Supervised routing ensures seamless orchestration between data management and optimization workflows, enabling real-time, insight-driven planning. This results in reduced planning cycles, improved sourcing strategies, and maximized operational efficiency.
 
 ### 4. Sales Development Representative 
