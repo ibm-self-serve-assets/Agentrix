@@ -38,9 +38,9 @@ Break free from rigid workflows with Agentic AI, featuring dynamic agents that a
 **Integrations:** WXO  
 The Decision Optimization Agent empowers procurement teams to make faster, smarter, and cost-effective decisions by automating bid evaluations, scenario creation, and impact analysis. It dynamically optimizes procurement plans using user-defined what-if inputs and constraints through CPLEX-based solvers and intelligent agents. Supervised routing ensures seamless orchestration between data management and optimization workflows, enabling real-time, insight-driven planning. This results in reduced planning cycles, improved sourcing strategies, and maximized operational efficiency.
 
-### 4. SDR
+### 4. Sales Development Representative 
 **Integrations:** WXO  
-An AI-powered Agentic-AI solution for scaling sales activities and increasing opportunity pipeline. The agent autonomously monitors client interests, analyzes relevant content, researches information about the customer and formulates an outreach campaign to engage customers, leading to increased sales activities and pipeline growth.
+An AI-powered Agentic-AI solution for scaling sales activities and increasing the opportunity pipeline. The agent autonomously monitors client interests, analyzes relevant content, researches information about the customer, and formulates an outreach campaign to engage customers, leading to increased sales activities and pipeline growth.
 
 ---
 
