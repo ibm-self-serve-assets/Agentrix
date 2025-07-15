@@ -1,7 +1,7 @@
 
 # Agentrix - A Catalogue Multi-Agent Enterprise Workflows
 
-Your next-gen Agentic AI worklfows designed to accelerate business outcomes through autonomous agents. 
+Your next-gen Agentic AI worklfows designed to accelerate business outcomes through autonomous agents. Try it here https://developer.ibm.com/dsce
 
 Single agents can do specific tasks. However, enterprise workflows are too complex for any single agent. There comes "Agentrix" , a multi-agent catalog designed for real, hard, and complex enterprise problems. With Agentrix, you can lift and shift complex workflows for problems in manufacturing, sales, supply chain or optimization workflows and integrate with products like Maximo, Decision Optimization, HashiCorp Vault without technical expertise.
 We’ll walk through real-world, complex workflows using Agentrix powered by multi-agent reasoning systems (MARS) , a new open catalog of reusable agents designed to solve hard enterprise problems at scale. It can
