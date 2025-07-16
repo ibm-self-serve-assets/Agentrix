@@ -84,7 +84,7 @@ Break free from rigid workflows with Agentic AI, featuring dynamic agents that a
 
 
 ### Disclaimer 
-This framework is developed by IBM Client and Ecosystem Engineering Team. Please note that this content is made available to foster Embeddable AI technology adoption and serve ecosystem partners. The content may include systems & methods pending patent with the USPTO and protected under US Patent Laws. SuperKnowa is not a product but a framework built on the top of IBM watsonx along with other products like LLAMA models from Meta & ML Flow from Databricks. Using SuperKnowa implicitly requires agreeing to the Terms and conditions of those products. This framework is made available on an as-is basis to accelerate Enterprise GenAI applications development. In case of any questions, please reach out to the project owner kunal@ibm.com.  
+This repo is developed by IBM Client and Ecosystem Engineering Team. Please note that this content is made available to foster Embeddable AI technology adoption and serve client and partners. The content may include systems & methods pending patent with the USPTO and protected under US Patent Laws. These agents uses framework built on the top of IBM watsonx along with other products like LLAMA models from Meta. Using this implicitly requires agreeing to the Terms and conditions of those products. This framework is made available on an as-is basis to accelerate Enterprise GenAI applications development. In case of any questions, please reach out to the owner kunal@ibm.com.  
 
 
 Copyright @ 2025 IBM Corporation. 
