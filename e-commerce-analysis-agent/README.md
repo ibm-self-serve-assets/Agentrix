@@ -1,4 +1,35 @@
-# Set up and launch application
+# 🛒 E-commerce analysis agent
+
+## 🚀 Introduction
+
+In the e-commerce domain, the role of AI agents is particularly transformative. With vast amounts of customer data, transaction records, and product information, e-commerce businesses often struggle to derive actionable insights. By leveraging AI agents, these businesses can automate data analysis, uncover purchasing patterns, and optimize strategies for marketing, inventory, and customer engagement.
+
+---
+
+## 📚 Table of Contents
+- [Key Features](#key-features)
+- [Workflow](#workflow)
+- [Installation](#installation)
+- [Example](#example)
+- [Contact](#contact)
+
+---
+
+## ✨ Key Features
+
+- Data insights: Get insights from customer purchase history, social media mentions and more.
+- Data Utilization: Leverages structured data (SQL tables) and unstructured data (text) to generate insights using LLMs.
+- Scalability: Easily extendable across different domains.
+
+---
+
+## 🔁 Workflow
+
+![image](https://github.ibm.com/skol/agentrix-catalogue/assets/244854/c7472488-5223-45c9-b8a1-9f19a7561d27)
+
+---
+
+## 🛠️ Installation
 
 ## Pre-requisites
 
@@ -9,11 +40,7 @@
 1. Navigate to the `backend` directory from the root directory and create a `.env` file. You can refer the `example.env` file for your reference.
 
     ```bash
-    IBM_CLOUD_API_KEY=
-    WX_PROJECT_ID=
-    WX_ENDPOINT=https://us-south.ml.cloud.ibm.com
-    FASTAPI_KEY=ec
-
+    cp example.env .env
     ```
 
 ##### Steps to create IBM Cloud API key
@@ -63,11 +90,7 @@
 1. In another terminal, navigate to `frontend` directory from the root directory and create another `.env` file. You can refer to the `example.env` file for your reference.
     
     ```bash
-    VITE_BACKEND_URL=http://127.0.0.1:8000 # your backend URL
-    VITE_API_KEY=ec # api key to access the backend URL. (FASTAPI_KEY)
-    VITE_CHATBOT_NAME="E-Commerce Analysis Agent"
-    VITE_WELCOME_MESSAGE="Hi there! 👋 I'm your e-commerce agent here to help you with everything from product purchases and in-depth product reviews. Just ask—I've got the data and insights ready!"
-    VITE_ENABLE_CHAT=true #set to false to disable chat
+    cp example.env .env
     ```
 
 2. Source these environment variables in your environment by running the following command in terminal:
@@ -89,5 +112,40 @@
     ```
 
 5. The app will start running on localhost port 3000.
+   
+7. Open the browser and navigate to `http://localhost:3000` to access the application.
 
-6. Open the browser and navigate to `http://localhost:3000` to access the application.
+---
+
+## 🐳 Docker Deployment
+
+1. **Build & Run Backend**
+```bash
+cd backend
+docker build -t e-commerce-analysis-agent-backend .
+docker run -d -p 8000:8000 --env-file .env e-commerce-analysis-agent
+```
+
+2. **Start Frontend**
+```bash
+cd ../frontend
+npm run build
+npm start
+```
+
+---
+
+## 📦 Example
+
+```text
+    "What did alice buy?"
+    "What is her reaction to those products?"
+    "What is the price of those products?"
+```
+
+---
+
+## 📫 Contact
+
+For deployment support, contact [Suman.P@ibm.com](mailto:Suman.P@ibm.com)
+

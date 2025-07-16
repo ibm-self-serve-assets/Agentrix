@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 
-import { Row, Column, Button, ClickableTile, Link , FormGroup, TextInput,
+import { Row, Column, Button, FormGroup, TextInput,
     RadioButtonGroup,
     RadioButton,
     Stack
 } from "@carbon/react";
-import { ArrowRight, UserAvatar } from '@carbon/icons-react';
 import './createUserForm.scss'
 import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 const CreateUserForm = () => {
 
@@ -33,7 +33,7 @@ const onChangeCred = (value: string, key: string) => {
             "event_id": 21,
             "event_name": "Work Trip",
             "event_description": "very detailed description from user",
-            "event_location": "Paris",
+            "event_location": "Vietnam",
             "event_date": "12 March 2025",
              "bgColor": "#001d6c"
         }],
@@ -46,6 +46,18 @@ const onChangeCred = (value: string, key: string) => {
  }
 
  const [user, setUser] = useState(newUserObj);
+ const [browserClass, setBrowserClass] = useState("");
+
+ useEffect(() => {
+    const isChrome =
+      /Chrome/.test(navigator.userAgent) &&
+      /Google Inc/.test(navigator.vendor) &&
+      !/Edg/.test(navigator.userAgent); // exclude Edge
+
+    if (isChrome) {
+      setBrowserClass("chrome-align");
+    }
+  }, []);
 
   // Set initial selected value based on credentials
   const [selectedGender, setSelectedGender] = useState(user.gender === "male" ? "male" : "female" );
@@ -64,21 +76,22 @@ const onChangeCred = (value: string, key: string) => {
 
  const navigate = useNavigate();
     return (
-        <div className="login-page" style={{  height: 'calc(100vh - 80px)'}}>
+        <div className="login-page" style={{ textAlign: "center"}}>
 
             <Row>
-                <Column lg={8} style={{ padding: '11rem 11rem 0 11rem' }}>
+                <Column sm={4} md={8} lg={{ span: 10, offset: 3 }} style={{ padding: '6rem 11rem 7rem 11rem',  }}>
                     <FormGroup
                         legendId="form-group-1"
                         className="create-form"
                         legendText="Create User Form"
+                        style={{background: 'black', padding: '2rem'}}
                     >
-                        <Stack gap={7}>
+                        <Stack gap={9}>
                             <TextInput
                                 id="one"
                                 value={user.user_username}
                                 onChange={(event)=>onChangeCred(event?.target.value, 'user_username')}
-                                labelText="UserName"
+                                labelText="Username"
                             />
                             <TextInput
                                 id="two"
@@ -87,26 +100,18 @@ const onChangeCred = (value: string, key: string) => {
                                 type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                 labelText="Password"
                             />
-                            <RadioButtonGroup
-                                defaultSelected={selectedGender}
-                                legendText="Gender"
-                                name="formgroup-default-radio-button-group"
-                                onChange={(value) => handleGenderChange(String(value))} // Ensure
-                            >
-                                <RadioButton
-                                    id="male"
-                                    labelText="Male"
-                                    value="male"
-                                    onChange={(eve)=>handleGenderChange('male')}
-                                />
-                                <RadioButton
-                                    id="female"
-                                    labelText="Female"
-                                    value="female"
-                                     onChange={()=>handleGenderChange('female')}
-                                />
-                             
-                            </RadioButtonGroup>
+                            <div  className={`radio-align ${browserClass}`}>
+                                <RadioButtonGroup
+                                    defaultSelected={selectedGender}
+                                    legendText="Gender"
+                                    name="formgroup-default-radio-button-group"
+                                    onChange={(value) => handleGenderChange(String(value))}
+                                >
+                                    <RadioButton id="male" labelText="Male" value="male" />
+                                    <RadioButton id="female" labelText="Female" value="female" />
+                                </RadioButtonGroup>
+                            </div>
+
                             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Button kind="tertiary"
                             size="md"
@@ -129,15 +134,12 @@ const onChangeCred = (value: string, key: string) => {
                     </FormGroup>
 
                 </Column>
-                <Column lg={8} style={{ padding: '11rem 11rem 0 11rem' }}>
-                    <img src="/loginpage.jpg" width={400} height={400}></img>
-                </Column>
+                {/* <Column lg={8} style={{ padding: '11rem 11rem 0 11rem' }}>
+                    <img src="/loginpage.jpg"   alt="Company Logo" width={400} height={400}/>
+                </Column> */}
             </Row>
             <footer>
-                <div className="footer" style={{ padding: '1rem' }}>
-                    <p style={{ marginBottom: '0.5rem' }}>Powered by <strong>IBM watsonx</strong> © 2025</p>
-                    <img src="./ibm-logo-black.png" alt="IBM watsonx Logo" style={{ height: '30px', 'margin': '0 10px' }} />
-                </div>
+                <Footer/>
             </footer>
         </div>
     );

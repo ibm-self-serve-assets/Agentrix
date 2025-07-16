@@ -1,0 +1,40 @@
+# metadata.yaml
+
+title_name: Personal Styling Assistant
+short_description: The Personal Styling Assistant is an AI-powered wardrobe planner that helps users curate and organize their clothing with ease.
+long_description: |
+  The Personal Styling Assistant is an AI-powered wardrobe planner that helps users curate and organize their clothing with ease.
+  By analyzing user preferences and available wardrobe items, the agent suggests ideal outfit combinations for different
+  occasions—whether casual, professional, or formal. Users can plan ahead, receive personalized style advice, and discover new
+  pairings they may not have considered. This streamlines decision-making and reduces the daily effort of getting dressed, while 
+  encouraging creativity and confidence in personal style.
+demo_explainer: demo-explainer.md
+architecture_diagram: FashionApp.drawio
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/fashionapp" 
+models_used:
+  - watsonx/meta-llama/llama-3-2-90b-vision-instruct
+ibm_products:
+  - watsonx Orchestrate
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Object Storage
+  - IBM Cloud Container Registry
+
+app_url: "https://fashionapp.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/" 
+backend_url: "https://fashion-app-backend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/"
+orchestrate_agent: "no" 
+responsive_ui: "yes"
+example_prompts: 
+   - No prompts required
+workflow: "#### An AI Companion that will assist you with fashion choices based on your events – powered by watsonx.ai and Agentic AI\n\nThis application will provide a personalized and interactive event-planning and styling assistant, **designed to enhance** user engagement through pre-defined personas or temporary session-based user creation. Each persona will offer a tailored experience with access to upcoming events, wardrobe integration, and AI-powered recommendations. Key features will include:\n\n* **User Personalization**: Will enable login through predefined personas or temporary users, ensuring flexibility and fast onboarding.\n\n* **Event Management**: Users will be able to view and create custom events, promoting ongoing interaction and repeat usage.\n\n* **Integrated AI Services**: AI-generated styling and travel suggestions will offer value-added, premium features with potential for monetization through partnerships or subscription models.\n\n* **User Context & Data Utilization**: Access to profile details and wardrobe items will allow the app to deliver contextual, data-driven recommendations, increasing user satisfaction and stickiness.\n\n* **Scalable Design**: Persona-based login with logout and switch capabilities will support diverse user testing, team collaboration, or customer journey simulations in various business scenarios.\n\nThe application will be designed with a modular and data-driven architecture to deliver personalized event-based recommendations.\n\n* **User Profile Input**: Will capture personal attributes such as name, age, weight, height, and body shape, enabling tailored content delivery.\n\n* **Event Management Module**: Will display synthetic event data and allow creation of custom events with fields like name, date, location, and description.\n\n* **Recommendation Engine**: Will dynamically generate suggestions per event, using user profile data and event-specific details.\n\n* **Agentic Framework Integration**: Will utilize personal data, event context (purpose, location, weather), and wardrobe inventory to perform gap analysis and generate AI-powered styling & travel recommendations.\n\n#### Tech Stack:\n\n* **Frontend**: ReactJS, Carbon Design System\n* **AI**: IBM watsonx.ai, LangGraph\n* **Backend**: Fast APIs, IBM Cloudant\n* **Deployment**: IBM Code Engine, IBM Container Registry (ICR)\n"
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - REACT_APP_BASE_URL
+  - REACT_APP_BASE_URL_SECONDARY
+  - WX_APIKEY
+  - PROJECT_ID
+  - WX_URL
+

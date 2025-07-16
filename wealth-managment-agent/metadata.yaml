@@ -1,17 +1,42 @@
 
-tile_name: Wealth Management Agent
-short_description: The Wealth Management Agent is an AI assistant that boosts investment professionals' efficiency by consolidating insights, automating tasks, and enabling faster, informed decision-making.
+title_name: Wealth Management Agent
+short_description: The Wealth Management Agent is a next-generation AI-powered assistant designed to amplify the productivity of financial advisors by automating time-consuming and repetitive tasks. By streamlining portfolio analysis, market research, and client communication, the agent enables advisors to deliver scalable, personalized, and real-time financial advisory services.
 long_description: |
   The Wealth management agent is an AI-powered assistant that enhances the productivity of investment professionals by consolidating key financial insights and actions into a single interface.
   It streamlines tasks such as retrieving and displaying investment reports, summarizing client meetings, and analyzing market performance, eliminating the need to switch between multiple tools. 
   By providing quick access to critical information and automating routine tasks, the agent enables wealth managers to make informed decisions more efficiently, improving client engagement and overall workflow.
 demo_explainer: demo-explainer.md
 architecture_diagram: ecomm.drawio
-repository_url:  # Leave blank, will be updated after deployment
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/wealth-managment-agent"
 models_used:
   - watsonx/meta-llama/llama-3-3-70b-instruct
 ibm_products:
   - watsonx.ai
   - IBM Cloud Code Engine
   - IBM Cloud Container Registry
-app_url: ""  # Leave blank, will be updated after deployment
+app_url: "https://wealth-frontend.1ww65sf49tch.us-south.codeengine.appdomain.cloud/" 
+backend_url: "https://wealth-backend-v2.1ww65sf49tch.us-south.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "no"
+responsive_ui: "yes"
+example_prompts:
+  - Get the transcript from my previous meeting with John Doe and create an email
+  - How does the US equity market compare to the rest of world?"  "Give me a report on John Doe's stock investment portfolio
+  - Get the transcript from my previous meeting with John Doe and create an email
+  - How does the US equity market compare to the rest of world?"
+workflow: "##Proposal: Wealth Management Agent – Enhancing Financial Advisor Productivity with AI\n\n### Use Case Summary\n\nFinancial advisors typically spend up to **50% of their time** on administrative and research tasks. The Wealth Management Agent reduces this burden by automating:\n\n- **Client portfolio data retrieval**\n- **Stock and market performance research**\n- **Financial outlook analysis (e.g., Goldman Sachs reports)**\n- **Report and email drafting**\n\n### Example Workflow\n\nA financial advisor (e.g., *Mary*) can leverage the agent to:\n\n1. Generate a **custom stock investment report** for a client (e.g., *John*).\n2. Pull **live market news and performance data** per stock.\n3. Retrieve **Goldman Sachs sectoral POVs**.\n4. Create a **downloadable, client-ready report**.\n5. Post-meeting, **summarize the transcript** and draft a follow-up email.\n6. Automatically send the email using **Watsonx Orchestrate**.\n\n### Business Impact\n\n- Saves **3+ hours per client**\n- Scales **personalized advisory** services\n- Delivers **real-time, data-driven insights**\n- Builds **trust and engagement** with clients\n\n---\n\n### Stakeholders\n\n- **Primary Domain:** BFSI (Banking, Financial Services, and Insurance)\n- **End Users:** Financial Advisors, Investment Consultants\n\n### Interactive Demo Application\n\nEvaluate the Wealth Management Agent through a hands-on interactive demo.\n\n#### Agent Actions:\n\n- SQL + API data retrieval\n- Live web search via Tavily API\n- AI-powered summarization and report generation\n- Automated email creation and dispatch\n\n#### What You'll See:\n\n- Modular agent execution logs\n- Step-by-step reasoning\n- Real-time UI output\n\n#### Tech Stack\n\n| Component      | Stack                                        |\n| -------------- | -------------------------------------------- |\n| Backend        | FastAPI, LangChain, LangGraph                |\n| Frontend       | React (optional)                             |\n| AI Models      | watsonx.ai foundation models                 |\n| Infrastructure | IBM Cloud, Docker                            |\n| Agents         | Report Generator, RAG Agent, Email Generator |\n| Tools          | SQL Toolkit, Tavily APIs, Vectorstore        |\n\nRefer to `README.md` for complete instructions.\n\n---\n\n### Architecture Highlights\n\n* **Multi-agent design** with LLM-based Supervisor Agent\n* **Modular architecture**: retrieval, summarization, email generation\n* **Object storage** for downloadable client reports\n* **RAG + reAct pattern** for real-world decision support\n* **Future-ready** for integration into CRMs and email systems via Watsonx Orchestrate\n\n---\n\n### AI Capabilities\n\n* **RAG (Retrieval-Augmented Generation)** for market insights\n* **Web search + summarization** agents for real-time updates\n* **SQL queries** for personalized report generation\n* **Meeting transcript summarization**\n* **AI-generated personalized emails**"
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - VITE_BACKEND_URL
+  - VITE_API_KEY
+  - VITE_CHATBOT_NAME
+  - VITE_WELCOME_MESSAGE
+  - VITE_ENABLE_CHAT
+  - IBM_CLOUD_API_KEY
+  - WX_PROJECT_ID
+  - WX_ENDPOINT
+  - FASTAPI_KEY
+  - USE_TOOL_CACHE
+  - TAVILY_API_KEY

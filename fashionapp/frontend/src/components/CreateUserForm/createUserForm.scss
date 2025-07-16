@@ -1,15 +1,67 @@
-.login-page{
-    // height: 90vh;
-    // margin-top: 2rem;
-}
+
 .create-form #form-group-1{
-    font-size: 18px;
+    // font-size: 18px;
     padding: 1rem 0;
+    font-weight: 700;
+    font-size: 24px !important;
+    position: relative;
+    top: 30px;
 }
 .login-container {
     border-right: 2px solid #262626;
-    border-image: 262626;
+    border-image: #262626;
     height: 100%;
     margin: 0;
     padding: 0
+}
+.login-page {
+    position: relative;
+    z-index: 1;
+    // color: #000; /* or any text color */
+  }
+  
+  .login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../public/bg-images/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5); /* Makes it darker without transparency */
+    // opacity: 0.2; /* Set your desired opacity */
+    z-index: -1; /* Send behind content */
+  }
+// #form-group-1 {
+//     font-weight: 400;
+//   }
+  
+// fieldset.bx--fieldset {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center; /* Center-align legend and content */
+//   border: none; /* Optional: Remove border if not needed */
+//   padding: 0;
+//   margin: 0;
+// }
+
+// .bx--fieldset legend {
+//   margin-bottom: 8px;
+//   text-align: center;
+// }
+
+/* Default styling */
+.radio-align fieldset legend {
+  margin-bottom: 8px;
+  text-align: left; /* or your default */
+}
+
+/* Chrome-specific styling */
+.chrome-align fieldset legend {
+  text-align: center;
+  position: relative;
+  left: -54px;
 }

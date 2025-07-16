@@ -1,5 +1,5 @@
-tile_name: Supply Chain Automation Agent
-short_description: Autonomous multi-agent system for orchestrating supply chain operations using watsonx Orchestrate.
+title_name: Supply Chain Automation Agent
+short_description: AI-driven system that simulates end-to-end supply chain operations using IBM Watsonx Orchestrate. It leverages autonomous agents to handle key functions such as demand forecasting, inventory management, procurement, logistics, and regulatory compliance. These agents are coordinated by a central orchestration controller to ensure seamless workflow execution. The system is designed for deployment with a FastAPI backend and a React-based frontend, enabling robust performance and a user-friendly interface.
 long_description: |
   The Supply Chain Automation Agent is a modular AI system built on IBM watsonx Orchestrate.
   It simulates real-world enterprise supply chain workflows—ranging from demand forecasting 
@@ -10,7 +10,7 @@ long_description: |
 
 demo_explainer: demo-explainer.md
 architecture_diagram: supply-chain-agent.drawio
-repository_url:  # Leave blank, will be updated after deployment
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/supply-chain-agent" # Leave blank, will be updated after deployment
 models_used:
   - watsonx/meta-llama/llama-3-2-90b-vision-instruct
 ibm_products:
@@ -19,4 +19,28 @@ ibm_products:
   - IBM Cloud Code Engine
   - IBM Cloud Object Storage
   - IBM Cloud Container Registry
-app_url: ""  # Leave blank, will be updated after deployment
+app_url: "https://wxo-supply-chain.1ww65sf49tch.us-south.codeengine.appdomain.cloud"  # Leave blank, will be updated after deployment
+backend_url: "https://supply-chain-backend.1ww65sf49tch.us-south.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "yes" 
+responsive_ui: "yes"
+example_prompts:
+  - Can you do an end to end planning for the upcoming 4 weeks
+  - Forecast sales for SKU001 for the next month
+  - We need to restock SKU001 and choose the best vendor.
+  - Verify compliance of Supplier A with ESG norms
+workflow: "## 🚛 Supply Chain Automation Agent \n\nThis project is a modular, AI-powered system that simulates end-to-end supply chain operations using IBM Watsonx Orchestrate. It uses autonomous agents for forecasting, inventory checks, procurement, logistics, and compliance, orchestrated by a central controller. The system can be deployed with a FastAPI backend and React-based frontend.\n\n---\n\n## ✨ Key Features\n\n- **📈 Forecast Agent** – Predicts demand using Prophet.\n- **📦 Inventory Agent** – Evaluates stock levels and flags restock needs.\n- **📥 Procurement Agent** – Selects vendors and generates procurement plans.\n- **🚚 Logistics Agent** – Plans delivery based on lead times and urgency.\n- **📋 Compliance Agent** – Checks vendor eligibility against policies.\n- **🧠 Controller Agent** – Orchestrates workflows across all agents.\n\n---\n\n## 🧩 Architecture & Tech Stack\n\n```\nUser ⟶ Frontend UI (ReactJS(vite))\n     ⬇️\nFastAPI Backend (Python)\n     ⬇️\nWatsonx Orchestrate Agent Framework\n     ⬇️\n+--------------------------+\n| Controller Agent         |\n|  ↳ Forecast Agent        |\n|  ↳ Inventory Agent       |\n|  ↳ Procurement Agent     |\n|  ↳ Compliance Agent      |\n|  ↳ Logistics Agent       |\n+--------------------------+\n\nTech Stack:\n- Frontend: ReactJS(Vite), Carbon Design System\n- Backend: FastAPI\n- AI: IBM watsonx orchestrate\n- Deployment: IBM Code Engine, IBM Container Registry\n```\n\n## Example Prompt\n\n- Can you do an end to end planning fro the upcoming 4 weeks.\n- Forecast sales for SKU001 for the next month.\n- We need to restock SKU001 and choose the best vendor.\n- Verify compliance of Supplier A with ESG norms."
+wxo_agent_name : "controller_agent"
+import_script_path: "backend/import-all.sh"
+is_customizable: "no"
+tile_image_path: "frontend/public/Supply_Chain.jpg"
+env:
+  - IAM_API_KEY
+  - INSTANCE_ID
+  - AGENT_ID
+  - WXO_INSTANCE_URL
+  - VITE_BACKEND_URL
+  - VITE_CHATBOT_NAME
+  - VITE_WELCOME_MESSAGE
+  - VITE_ENABLE_CHAT
+  - VITE_APP_NAME
+

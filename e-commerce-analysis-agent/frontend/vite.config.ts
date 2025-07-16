@@ -8,9 +8,7 @@ export default defineConfig({
   preview: {
    port: 3000,
    strictPort: true,
-   allowedHosts: ["ecombackend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud",
-                  "ecomfrontend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud",
-                 ]
+   allowedHosts: true
   },
   server: {
    port: 3000,

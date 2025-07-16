@@ -17,8 +17,6 @@ app = FastAPI()
 INSTANCE_ID = os.getenv("INSTANCE_ID")
 AGENT_ID = os.getenv("AGENT_ID")
 IAM_API_KEY = os.getenv("IAM_API_KEY")
-X_IBM_REQUEST_ID= os.getenv("X_IBM_REQUEST_ID")
-X_IBM_WO_CSRF=os.getenv("X_IBM_WO_CSRF")
 WXO_INSTANCE_URL=os.getenv("WXO_INSTANCE_URL")
 
 # Allow frontend on localhost:3000

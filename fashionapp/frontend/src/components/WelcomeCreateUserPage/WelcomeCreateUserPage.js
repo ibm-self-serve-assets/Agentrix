@@ -1,34 +1,26 @@
 import { useState, useEffect } from "react";
 import {
   Column,
-  TextArea,
   Button,
   Tile,
   Row,
-  Loading,
-  InlineNotification,
   TextInput,
   IconButton
 } from "@carbon/react";
 import "./WelcomeCreateUserPage.scss";
-import LeftPanel from "../LeftPanel/leftPanel";
-import Navigation from "../navigation/navigation";
 import { SendFilled } from '@carbon/icons-react';
-import { CircleLoader } from "react-spinners";
 
-// import {fetchLQuestionResponse}  from "../../services/llm.service";
-
-const WelcomeCreateUserPage = ({ editFormFlag, setEditFormFlag, handleShowEventsChange , emailChange}) => {
+const WelcomeCreateUserPage = ({  setEditFormFlag, handleShowEventsChange , emailChange}) => {
 
 
-  const [isLoading, setIsLoading] = useState(false);
-  const [inlineToastMsg, setInlineToastMsg] = useState(false);
-  const [notificationTitle, setNotificationTitle] = useState(
-    "Server is not reachable"
-  );
-  const [notificationKind, setNotificationKind] = useState("info");
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [inlineToastMsg, setInlineToastMsg] = useState(false);
+  // const [notificationTitle, setNotificationTitle] = useState(
+  //   "Server is not reachable"
+  // );
+  // const [notificationKind, setNotificationKind] = useState("info");
   const [clickedStartStyling, setClickedStartStyling] = useState(false);
-  const [editForm, setEditform] = useState(false);
+  // const [editForm, setEditform] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const imgData = [{
@@ -47,7 +39,7 @@ const WelcomeCreateUserPage = ({ editFormFlag, setEditFormFlag, handleShowEvents
   }
 
   ]
-  const [images, setImages] = useState(imgData[1].data)
+  const [images] = useState(imgData[1].data)
   
   
   useEffect(() => {
@@ -77,8 +69,8 @@ const WelcomeCreateUserPage = ({ editFormFlag, setEditFormFlag, handleShowEvents
       {clickedStartStyling ? (
         <>
           <Tile className="bg-tile">
-            <h4>Stay effortlessly prepared for every occasion! Sync your calendar by entering your email and let us plan your wardrobe around </h4>
-            <h6 style={{ margin: '1rem 0' }}>📅 No upcoming events detected—connect now to unlock seamless styling!</h6>
+            <h4>Always be ready for any event! Link your calendar by entering your email, and we'll curate your wardrobe to match.</h4>
+            <h6 style={{ margin: '1rem 0' }}>📅 No events found—connect now to unlock effortless styling!</h6>
             <div style={{ display: "flex", justifyContent: "center", padding: '0rem', margin: '0 3rem' }}>
 
               <div>
@@ -117,8 +109,8 @@ const WelcomeCreateUserPage = ({ editFormFlag, setEditFormFlag, handleShowEvents
         </>
       ) : (
         <Tile className="bg-tile">
-          <h2>Tired of wearing the same outfits and not sure what suits you best? </h2>
-          <h6 style={{ margin: '1rem 0' }}>Enter your height, weight, body shape, and type to get personalized wardrobe recommendations tailored just for you by clicking Start Styling!</h6>
+          <h2>Wearing the same outfits on repeat and still not feeling your best?</h2>
+          <h6 style={{ margin: '1rem 0' }}>Let us get to know your body better—share a few details and we’ll tailor looks that truly fit you. Ready? Click 'Start Styling'</h6>
           <Button kind="secondary" onClick={() => {
             setClickedStartStyling(true);
           }}>Start Styling</Button>

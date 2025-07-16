@@ -15,10 +15,10 @@ RUN npm install
 COPY . .
 
 # Build the React app
-RUN npm run build
+#RUN npm run build
 
 # Expose port 80
 EXPOSE 3000
 
-# Start Nginx
-CMD ["npm", "run", "preview"]
+# Start app
+CMD ["sh","-c", "npm run build && npm run preview"]
