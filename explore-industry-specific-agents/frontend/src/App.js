@@ -203,7 +203,7 @@ function App() {
             
             <br />
             <div style={{  display: 'flex', gap: '20px', padding: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <ClickableTile
+              {/* <ClickableTile
                 style={{
                   width: '250px',
                   height: '250px',
@@ -223,7 +223,8 @@ function App() {
               >
                 <UserMultiple size={32} />
                 <div style={{ marginTop: '10px', fontWeight: 'bold' }}>Try Custom Usecases</div>
-              </ClickableTile>
+              </ClickableTile> */}
+
               <ClickableTile
                 style={{
                   width: '250px',

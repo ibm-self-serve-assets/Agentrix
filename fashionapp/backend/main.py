@@ -45,7 +45,6 @@ project_id= os.getenv("PROJECT_ID",None)
 
 
 # Utilities
-
 def extract_list(input_str):
     input_str = re.sub(r'```(?:python)?', '', input_str).strip()
 
@@ -255,7 +254,6 @@ def output_consolidator(tool_logs, query, wardrobe_ids, gender):
 
 
 
-# Phase 1 tools - style_recommender_tool, travel_recommender_tool
 @tool
 def style_recommender_tool(
     wardrobe_items_ids: str, gender: str, event_date: str, event_location: str, event_type: str) -> list:
@@ -288,36 +286,6 @@ def travel_recommender_tool( gender: str, event_date: str, event_location: str, 
 
     return response
 
-
-
-# Phase 2 tools- catalogue_data_retriever, complete_catalogue_data_retriever
-@tool
-def catalogue_data_retriever(
-    wardrobe_ids: str, gender: str) -> list:
-    """Use this function to get catalogue of apparel products data excluding the wardrobe_ids and getting relevant catalogue data"""
-    wardrobe_ids = json.loads(wardrobe_ids)
-    with open('./imgmap.json') as file:
-        json_data = json.load(file)
-    
-    filtered_data = [
-        item for item in json_data 
-        if item['id'] not in wardrobe_ids and item['gender'].lower() == gender.lower()
-    ]    
-    return filtered_data
-    
-
-@tool
-def complete_catalogue_data_retriever(gender: str) -> list:
-    """Use this function to get complete catalogue data of apparel items relevant to given gender"""
-    # wardrobe_ids = json.loads(wardrobe_ids)
-    with open('./imgmap.json') as file:
-        json_data = json.load(file)
-    
-    filtered_data = [
-        item for item in json_data 
-        if item['gender'].lower() == gender.lower()
-    ]    
-    return filtered_data
 
 
 
@@ -367,56 +335,9 @@ builder.add_edge("style_recommender", END)
 graph = builder.compile()
 
 
-# llm_mb = ChatWatsonx(
-#     model_id="ibm/granite-3-8b-instruct",
-#     url=credentials.get("url"),
-#     apikey=credentials.get("apikey"),
-#     project_id=project_id,
-#     params={
-#            "frequency_penalty": 0,
-#             "max_tokens": 300,
-#             "presence_penalty": 0,
-#             "temperature": 0.1,
-#             "top_p": 1
-#     },
-# )
-
-
-
-wardrobe_gap_analyser = create_react_agent(
-    llm, tools=[catalogue_data_retriever], prompt="Given wardrobe items that user already has, provide the wardrobe gap analysis as per the catalogue data"
-)
-
-def wardrobe_gap_analyser_node(state):
-    result = wardrobe_gap_analyser.invoke(state['query'])
-    return {"recc": [result]} 
-
-style_recommender_agent = create_react_agent(llm, tools=[complete_catalogue_data_retriever], prompt="""You are a personal fashion assistant tasked with suggesting complimentary apparel items to the user selections based on provided gender""")
-
-def style_recommender_node(state):
-    result = style_recommender_agent.invoke(state['query'])
-    return {"recc": [result]}
-
-
-
-# builder_mb = StateGraph(State)
-# builder_mb.add_node("wardrobe_gap_analyser", wardrobe_gap_analyser_node)
-# builder_mb.add_node("mb_style_recommender", style_recommender_node)
-
-# builder_mb.add_edge(START, "wardrobe_gap_analyser")
-# builder_mb.add_edge(START, "mb_style_recommender")
-# builder_mb.add_edge("wardrobe_gap_analyser", END)
-# builder_mb.add_edge("mb_style_recommender", END)
-# graph_mb = builder_mb.compile()
-
-
-
-#---------------------------------------------------------------------
-
 class UserQuery(BaseModel):
     query: dict
 
-#Phase 1 API
 @app.post("/getrecommendations")
 async def get_recommendations(user_input: UserQuery):
 
@@ -459,52 +380,3 @@ async def get_recommendations(user_input: UserQuery):
     except GraphRecursionError:
         print("Recursion limit reached")
         return {"response": "Server Error"}
-
-
-#Phase 2 API
-# @app.post("/getmbrecommendations")
-# async def get_mb_recommendations(user_input: UserQuery):
-
-#     user_id= user_input.query["user_id"]
-#     evt_id= user_input.query["event_id"]
-#     evt_name = user_input.query["event_name"]
-#     evt_loc = user_input.query["event_location"]
-#     evt_date = user_input.query["event_date"]
-#     gender = user_input.query["gender"]
-#     wardrobe_ids = user_input.query["wardrobe_items"]
-#     mb_ids = user_input.query["moodboard_items"]
-
-
-#     prompt_p2 =f"""
-# - User Profile: I am a {gender}.
-# - Wardrobe Items I Own: {wardrobe_ids} (IDs from the catalog).
-# - Items I Like and Selected: {mb_ids} (IDs from the catalog).
-
-# Task:
-# - Perform a wardrobe gap analysis: Identify which styling items from the catalog I do not currently own.
-# - Based on the catalog, only suggest apparel items I do not own that complement the items I selected ({mb_ids}).
-# - The suggested items must be appropriate for a {evt_name} event in {evt_loc} on {evt_date}.
-# - Return the IDs and descriptions of the suggested items from the catalog that fit the criteria.
-
-# Constraints:
-# - Only include items from the provided catalog.
-# - Suggestions should only be apparel items not already in my wardrobe or the ones I selected.
-# """
-
-#     config_mb = RunnableConfig(recursion_limit=50)
-#     valid_json={}
-#     agent_response_mb = []
-#     for smb in graph.stream({"query": {"messages": prompt_p2}}, config_mb):
-#         agent_response_mb.append(smb)
-    
-#     final_response = output_consolidator(agent_response_mb, prompt_p2, wardrobe_ids, gender)
-#     final_response_processed = final_response.strip().replace("```json", "").replace("```", "").strip()
-
-#     try:
-#         valid_json = json.loads(final_response_processed)
-#         valid_json.update({"user_id": user_id, "event_id": evt_id})
-
-#     except json.JSONDecodeError as e:
-#         print(f"Error parsing JSON: {e}")
-
-#     return {"response": valid_json}

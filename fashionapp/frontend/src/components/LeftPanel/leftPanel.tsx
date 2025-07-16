@@ -5,7 +5,7 @@ import { FormGroup, Form, TextInput, Link, Dropdown
 import { ArrowRight, UserAvatar } from '@carbon/icons-react';
 import "./leftPanel.scss";
 import { CircleLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 interface Props {
     editFormFlag: boolean;
@@ -15,12 +15,10 @@ interface Props {
 const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }) => {
 
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
-    // console.log('editFormFlag', editFormFlag)
+
     useEffect(()=>{
     },[userDetails, setEditFormFlag,])
 
-    // const [editForm, setEditForm] = useState(true);
     const items = [{ id: '1', text: 'Pear' },
     { id: '2', text: 'Oval' },
     { id: '3', text: 'Hourglass' },
@@ -63,9 +61,21 @@ const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }
     };
     return (
 
-        <div style={{ padding: '1rem', }}>
+        <div style={{ padding: '2rem', }}>
             <div style={{ textAlign: 'center' }}>
-                <UserAvatar size={100} />
+                {userDetails?.user_profileImg ? (
+                    <>
+                    <img
+                    src={`/avatars/${userDetails?.user_profileImg}.png`}
+                    alt={userDetails?.user_fullname}
+                    style={{ width: '50%', height: '50%' }}
+                    />
+                    </>
+                ) : (
+                    <>
+                <UserAvatar size={100} /></>
+                )}
+              
                 <div>
                     <h3>{userDetails?.user_username}</h3>
                 </div>
@@ -82,7 +92,7 @@ const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }
             <div>
                 <Form aria-label="user form" onSubmit={handleSubmit} >
 
-                    <FormGroup className="user-form-formatting" legendText="" disabled={(editFormFlag && userDetails?.flow  == "new_user")  || selectedEmail === ""}>
+                    <FormGroup className="user-form-formatting" legendText="" disabled={(editFormFlag && userDetails?.flow  === "new_user")  || selectedEmail === ""}>
 
                         <TextInput className="user-form-formatting" id="age" labelText="Age" placeholder="Enter Age" value={formData?.age}
                             onChange={handleInputChange} />
@@ -91,7 +101,7 @@ const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }
                         <TextInput className="user-form-formatting" id="height" labelText="Height (in inches)" placeholder="Enter Height" value={formData?.height}
                             onChange={handleInputChange} />
                         <Dropdown id="bodyShape" titleText="Body Shape"
-                           disabled={(editFormFlag && userDetails?.flow  == "new_user")  || selectedEmail === ""}
+                           disabled={(editFormFlag && userDetails?.flow  === "new_user")  || selectedEmail === ""}
 
                             selectedItem={filteredBodyShape}
                             onChange={handleDropdownChange}
@@ -109,7 +119,7 @@ const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }
                             opacity: userDetails?.flow  === "existing_user" ? 0.5 : 1,
                           }}
                         >
-                        Let's Style your life
+                        Elevate Your Everyday Style
                         
                         <span style={{ marginLeft: '0.5rem',
                       
@@ -120,9 +130,12 @@ const LeftPanel = ({ editFormFlag, selectedEmail, setEditFormFlag, userDetails }
                 </Form>
             </div>
             <footer>
-                <div className="footer">
+                <div >
                     <p style={{ marginBottom: '0.5rem' }}>Powered by <strong>IBM watsonx</strong> © 2025</p>
                     <img src="./ibm-logo-black.png" alt="IBM watsonx Logo" style={{ height: '30px' }} />
+                    <br/>
+                    <br/>
+                    <p style={{ fontSize: '12px' }}>All images have been sourced from Creative Commons</p>
                 </div>
             </footer>
 

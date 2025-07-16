@@ -1,372 +1,372 @@
 [
   {
     "id": "1",
-    "category": "men Apparel",
-    "description": "Tailored Wool Blazer",
+    "category": "men apparel",
+    "description": "Wool Blazer",
     "imgfilepath": "imagerepo/image1.png",
     "gender": "male"
   },
   {
     "id": "2",
-    "category": "men Apparel",
-    "description": "Cashmere Overcoat",
+    "category": "men apparel",
+    "description": "Soft Overcoat",
     "imgfilepath": "imagerepo/image2.png",
     "gender": "male"
   },
   {
     "id": "3",
-    "category": "men Apparel",
-    "description": "Silk-Lined Leather Jacket",
+    "category": "men apparel",
+    "description": "Leather Jacket",
     "imgfilepath": "imagerepo/image3.png",
     "gender": "male"
   },
   {
     "id": "4",
-    "category": "men Apparel",
-    "description": "Cashmere Turtleneck",
+    "category": "men apparel",
+    "description": "Soft Turtleneck",
     "imgfilepath": "imagerepo/image4.png",
     "gender": "male"
   },
   {
     "id": "5",
-    "category": "men Apparel",
-    "description": "Slim-Fit Japanese Denim Jeans",
+    "category": "men apparel",
+    "description": "Slim-Fit Denim Jeans",
     "imgfilepath": "imagerepo/image5.png",
     "gender": "male"
   },
   {
     "id": "6",
-    "category": "men Apparel",
-    "description": "Italian Wool Trousers",
+    "category": "men apparel",
+    "description": "Wool Trousers",
     "imgfilepath": "imagerepo/image6.png",
     "gender": "male"
   },
   {
     "id": "7",
-    "category": "men Apparel",
-    "description": "Luxe Cotton Polo Shirt",
+    "category": "men apparel",
+    "description": "Cotton Polo Shirt",
     "imgfilepath": "imagerepo/image7.png",
     "gender": "male"
   },
   {
     "id": "8",
-    "category": "men Apparel",
-    "description": "Silk Dress Shirt",
+    "category": "men apparel",
+    "description": "Silk Shirt",
     "imgfilepath": "imagerepo/image8.png",
     "gender": "male"
   },
   {
     "id": "9",
-    "category": "men Apparel",
-    "description": "Handcrafted Suede Bomber",
+    "category": "men apparel",
+    "description": "Bomber Jacket",
     "imgfilepath": "imagerepo/image9.png",
     "gender": "male"
   },
   {
     "id": "10",
-    "category": "women Footwear",
-    "description": "Crystal-Embellished Stilettos",
+    "category": "women footwear",
+    "description": "Glam Stilettos",
     "imgfilepath": "imagerepo/image10.png",
     "gender": "female"
   },
   {
     "id": "11",
-    "category": "women Footwear",
-    "description": "Patent Leather Pumps",
+    "category": "women footwear",
+    "description": "Polished Pumps",
     "imgfilepath": "imagerepo/image11.png",
     "gender": "female"
   },
   {
     "id": "12",
-    "category": "women Footwear",
-    "description": "Lace-Up Leather Sandals",
+    "category": "women footwear",
+    "description": "Leather Sandals",
     "imgfilepath": "imagerepo/image12.png",
     "gender": "female"
   },
   {
     "id": "13",
-    "category": "women Footwear",
-    "description": "Velvet Ankle Boots",
+    "category": "women footwear",
+    "description": "Leather Boots",
     "imgfilepath": "imagerepo/image13.png",
     "gender": "female"
   },
   {
     "id": "14",
-    "category": "women Footwear",
-    "description": "Pearl-Studded Ballet Flats",
+    "category": "women footwear",
+    "description": "Bronze Flats",
     "imgfilepath": "imagerepo/image14.png",
     "gender": "female"
   },
   {
     "id": "15",
-    "category": "women Footwear",
-    "description": "Designer High-Top Sneakers",
+    "category": "women footwear",
+    "description": "Fancy Sneakers",
     "imgfilepath": "imagerepo/image15.png",
     "gender": "female"
   },
   {
     "id": "16",
-    "category": "men Footwear",
-    "description": "Handmade Monk strap shoes",
+    "category": "men footwear",
+    "description": "Monk shoes",
     "imgfilepath": "imagerepo/image16.png",
     "gender": "male"
   },
   {
     "id": "17",
-    "category": "men Footwear",
-    "description": "Italian leather oxfords",
+    "category": "men footwear",
+    "description": "Formal oxfords",
     "imgfilepath": "imagerepo/image17.png",
     "gender": "male"
   },
   {
     "id": "18",
-    "category": "men Footwear",
-    "description": "Suede Chelsea Boots",
+    "category": "men footwear",
+    "description": "Leather Boots",
     "imgfilepath": "imagerepo/image18.png",
     "gender": "male"
   },
   {
     "id": "19",
-    "category": "men Footwear",
-    "description": "Exotic skin loafers",
+    "category": "men footwear",
+    "description": "Leather loafers",
     "imgfilepath": "imagerepo/image19.png",
     "gender": "male"
   },
   {
     "id": "20",
-    "category": "men Footwear",
-    "description": "Classic leather derby shoes",
+    "category": "men footwear",
+    "description": "Dress shoes",
     "imgfilepath": "imagerepo/image20.png",
     "gender": "male"
   },
   {
     "id": "21",
-    "category": "men Footwear",
-    "description": "Luxury running sneakers",
+    "category": "men footwear",
+    "description": "Fancy sneakers",
     "imgfilepath": "imagerepo/image21.png",
     "gender": "male"
   },
   {
     "id": "22",
-    "category": "women Fragrance & beauty",
-    "description": "Signature Oud Perfumes",
+    "category": "womenfragrance&beauty",
+    "description": "Arabian Perfumes",
     "imgfilepath": "imagerepo/image22.png",
     "gender": "female"
   },
   {
     "id": "23",
-    "category": "men Fragrance & beauty",
-    "description": "Limited Edition Cologne",
+    "category": "menfragrance&beauty",
+    "description": "Deluxe Cologne",
     "imgfilepath": "imagerepo/image23.png",
     "gender": "male"
   },
   {
     "id": "24",
-    "category": "women Fragrance & beauty",
-    "description": "Gold-Infused Face Serums",
+    "category": "womenfragrance&beauty",
+    "description": "Face Serums",
     "imgfilepath": "imagerepo/image24.png",
     "gender": "female"
   },
   {
     "id": "25",
-    "category": "women Fragrance & beauty",
-    "description": "Velvet Matte Lipsticks",
+    "category": "womenfragrance&beauty",
+    "description": "Plush Lipsticks",
     "imgfilepath": "imagerepo/image25.png",
     "gender": "female"
   },
   {
     "id": "26",
-    "category": "men Fragrance & beauty",
-    "description": "Cashmere Scented Candles",
+    "category": "menfragrance&beauty",
+    "description": "Scented Candles",
     "imgfilepath": "imagerepo/image26.png",
     "gender": "male"
   },
   {
     "id": "27",
-    "category": "women Accessories",
-    "description": "Signature Silk Scarve",
+    "category": "women accessories",
+    "description": "Silk Scarf",
     "imgfilepath": "imagerepo/image27.png",
     "gender": "female"
   },
   {
     "id": "28",
-    "category": "men Accessories",
-    "description": "Embellished Leather Belts",
+    "category": "men accessories",
+    "description": "Leather Belt",
     "imgfilepath": "imagerepo/image28.png",
     "gender": "male"
   },
   {
     "id": "29",
-    "category": "men Accessories",
-    "description": "Handcrafted Cufflinks",
+    "category": "men accessories",
+    "description": "Statement cufflinks",
     "imgfilepath": "imagerepo/image29.png",
     "gender": "male"
   },
   {
     "id": "30",
-    "category": "women Accessories",
-    "description": "Statement Brooches",
+    "category": "women accessories",
+    "description": "Brooches",
     "imgfilepath": "imagerepo/image30.png",
     "gender": "female"
   },
   {
     "id": "31",
-    "category": "women Accessories",
-    "description": "Luxury Watches (Swiss-made)",
+    "category": "women accessories",
+    "description": "Swiss Watch",
     "imgfilepath": "imagerepo/image31.png",
     "gender": "female"
   },
   {
     "id": "32",
-    "category": "women Accessories",
-    "description": "Gold-Plated Sunglasses",
+    "category": "women accessories",
+    "description": "Sunglasses",
     "imgfilepath": "imagerepo/image32.png",
     "gender": "female"
   },
   {
     "id": "33",
-    "category": "women Accessories",
-    "description": "Fur-Lined Leather Gloves",
+    "category": "women accessories",
+    "description": "Leather Gloves",
     "imgfilepath": "imagerepo/image33.png",
     "gender": "female"
   },
   {
     "id": "34",
-    "category": "women Accessories",
-    "description": "Diamond Stud Earrings",
+    "category": "women accessories",
+    "description": "Stud Earrings",
     "imgfilepath": "imagerepo/image34.png",
     "gender": "female"
   },
   {
     "id": "35",
-    "category": "women Accessories",
-    "description": "Pearl Necklaces",
+    "category": "women accessories",
+    "description": "Pearl Choker",
     "imgfilepath": "imagerepo/image35.png",
     "gender": "female"
   },
   {
     "id": "36",
-    "category": "men Accessories",
-    "description": "Monogrammed Silk Ties",
+    "category": "men accessories",
+    "description": "Silk Ties",
     "imgfilepath": "imagerepo/image36.png",
     "gender": "male"
   },
   {
     "id": "37",
-    "category": "women Accessories",
-    "description": "Crocodile Leather Handbag",
+    "category": "women accessories",
+    "description": "Leather Handbag",
     "imgfilepath": "imagerepo/image37.png",
     "gender": "female"
   },
   {
     "id": "38",
-    "category": "men Accessories",
-    "description": "Cardholders with Gold Detailing",
+    "category": "men accessories",
+    "description": "Cardholder",
     "imgfilepath": "imagerepo/image38.png",
     "gender": "male"
   },
   {
     "id": "39",
-    "category": "women Accessories",
-    "description": "Quilted Lambskin Shoulder Bag",
+    "category": "women accessories",
+    "description": "Shoulder Bag",
     "imgfilepath": "imagerepo/image39.png",
     "gender": "female"
   },
   {
     "id": "40",
-    "category": "women Accessories",
-    "description": "Embossed Leather Tote",
+    "category": "women accessories",
+    "description": "Canvas Tote Bag",
     "imgfilepath": "imagerepo/image40.png",
     "gender": "female"
   },
   {
     "id": "41",
-    "category": "women Accessories",
-    "description": "Handwoven Rattan Clutch",
+    "category": "women accessories",
+    "description": "Leather Clutch",
     "imgfilepath": "imagerepo/image41.png",
     "gender": "female"
   },
   {
     "id": "42",
-    "category": "men Accessories",
-    "description": "Exotic Skin Wallets",
+    "category": "men accessories",
+    "description": "Leather Wallets",
     "imgfilepath": "imagerepo/image42.png",
     "gender": "male"
   },
   {
     "id": "43",
-    "category": "men Accessories",
-    "description": "Engraved Money Clips",
+    "category": "men accessories",
+    "description": "Money Clips",
     "imgfilepath": "imagerepo/image43.png",
     "gender": "male"
   },
   {
     "id": "44",
-    "category": "men Accessories",
-    "description": "Premium Leather Passport Holder",
+    "category": "men accessories",
+    "description": "Deluxe Passport Holder",
     "imgfilepath": "imagerepo/image44.png",
     "gender": "male"
   },
   {
     "id": "45",
-    "category": "women Apparel",
-    "description": "Embroidered Evening Gown",
+    "category": "women apparel",
+    "description": "Evening Gown",
     "imgfilepath": "imagerepo/image45.png",
     "gender": "female"
   },
   {
     "id": "46",
-    "category": "women Apparel",
-    "description": "Silk Wrap Dress",
+    "category": "women apparel",
+    "description": "Silk Dress",
     "imgfilepath": "imagerepo/image46.png",
     "gender": "female"
   },
   {
     "id": "47",
-    "category": "women Apparel",
-    "description": "Lace-Trimmed Corset Top",
+    "category": "women apparel",
+    "description": "Corset Top",
     "imgfilepath": "imagerepo/image47.png",
     "gender": "female"
   },
   {
     "id": "48",
-    "category": "women Apparel",
-    "description": "Feather-Embellished Cocktail Dress",
+    "category": "women apparel",
+    "description": "Cocktail Dress",
     "imgfilepath": "imagerepo/image48.png",
     "gender": "female"
   },
   {
     "id": "49",
-    "category": "women Apparel",
-    "description": "Organza Ruffle Blouse",
+    "category": "women apparel",
+    "description": "Flowy Blouse",
     "imgfilepath": "imagerepo/image49.png",
     "gender": "female"
   },
   {
     "id": "50",
-    "category": "women Apparel",
-    "description": "Velvet Jumpsuit",
+    "category": "women apparel",
+    "description": "Chic Jumpsuit",
     "imgfilepath": "imagerepo/image50.png",
     "gender": "female"
   },
   {
     "id": "51",
-    "category": "women Apparel",
-    "description": "Cashmere Cape Coat",
+    "category": "women apparel",
+    "description": "Soft Cape Coat",
     "imgfilepath": "imagerepo/image51.png",
     "gender": "female"
   },
   {
     "id": "52",
-    "category": "women Apparel",
-    "description": "Handwoven Tweed Blazer",
+    "category": "women apparel",
+    "description": "Classic Blazer",
     "imgfilepath": "imagerepo/image52.png",
     "gender": "female"
   },
   {
     "id": "53",
-    "category": "women Apparel",
-    "description": "Fitted Leather Pants",
+    "category": "women apparel",
+    "description": "Slim-fit Pants",
     "imgfilepath": "imagerepo/image53.png",
     "gender": "female"
   }

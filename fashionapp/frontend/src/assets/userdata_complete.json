@@ -12,9 +12,9 @@
         "bodyshape": "Pear",
         "user_events":[ {
             "event_id": 11,
-            "event_name": "Business Trip",
+            "event_name": "Lesiure Trip",
             "event_description": "Attending World Business Conference to represent organization",
-            "event_location": "Paris",
+            "event_location": "Vietnam",
             "event_date": "11th November 2025",
             "bgColor": "#001d6c"
         }],
@@ -34,9 +34,9 @@
         "bodyshape": "Oval",
         "user_events":[ {
             "event_id": 21,
-            "event_name": "Business Trip",
+            "event_name": "Lesiure Trip",
             "event_description": "Attending World Business Conference to represent organization",
-            "event_location": "Paris",
+            "event_location": "Vietnam",
             "event_date": "25 March 2025",
              "bgColor": "#001d6c"
         }],
@@ -56,9 +56,9 @@
         "bodyshape": "Petite",
         "user_events":[ {
             "event_id": 31,
-            "event_name": "Business Trip",
+            "event_name": "Lesiure Trip",
             "event_description": "Attending World Business Conference to represent organization",
-            "event_location": "Paris",
+            "event_location": "Vietnam",
             "event_date": "11th November 2025",
             "bgColor": "#001d6c"
         }],

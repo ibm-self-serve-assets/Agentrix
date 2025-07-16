@@ -1,5 +1,5 @@
 
-tile_name: Explore industry-specific agents
+title_name: Explore industry-specific agents
 short_description: Industry-specific agents built with LangGraph and watsonx.ai LLMs showcase how agentic systems outperform standalone prompts.
 long_description: |
 A set of Industry-specific agents are preconfigured using a specific Agent Framework and watsonx.ai LLMs to demonstrate how an Agentic system can be built to answer user questions
@@ -8,11 +8,28 @@ A set of Industry-specific agents are preconfigured using a specific Agent Frame
  create an iterative flow that performs better compared to the LLM's answer based on a single prompt.
 demo_explainer: demo-explainer.md
 architecture_diagram: ecomm.drawio
-repository_url:  # Leave blank, will be updated after deployment
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/explore-industry-specific-agents" 
 models_used:
   - watsonx/meta-llama/llama-3-3-70b-instruct
 ibm_products:
   - watsonx.ai
   - IBM Cloud Code Engine
   - IBM Cloud Container Registry
-app_url: ""  # Leave blank, will be updated after deployment
+app_url: "https://agentrix-industry-agent-frontend.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/"  # Leave blank, will be updated after deployment
+backend_url: "https://agentrix-industry-agent-v3.1uijsxnqve2c.us-south.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "no" 
+responsive_ui: "yes"
+example_prompts:
+  - Need to add sample prompt
+workflow: " Select one of the industry use cases.You will see a preselected agent configuration. For e.g. the travel planning agent uses the following presets. Framework: LangGraph framework . Tools: WikipediaTool, DuckDuckGoTool, WebCrawlerTool, OpenMeteoToolMemory: Token Memory (Click on info icon to view what it means)LLM: meta-llama/llama-3-70b-instruct.Prompt: The same prompt is also directly sent to an LLM for comparison with the Agent response.Click on "Submit" to receive the agentic response. An LLM response is also generated for comparison.In addition, also check the Agent's reasoning + action (ReACT) template with Thought, Action and Observation loop that is created by the LLM to solve the problem"
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - REACT_APP_BEE_BACKEND
+  - REACT_APP_LANGCHAIN_BACKEND
+  - REACT_APP_LANGGRAPH_BACKEND
+  - IBM_CLOUD_API_KEY
+  - WX_PROJECT_ID
+  - WX_ENDPOINT

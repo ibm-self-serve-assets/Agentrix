@@ -1,48 +1,45 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Column,
-  TextArea,
-  Button,
-  Tile,
   Row,
-  Loading,
-  InlineNotification,
-  TextInput,
-  IconButton
 } from "@carbon/react";
 import "./Homepage.scss";
 import LeftPanel from "../LeftPanel/leftPanel";
-import Navigation from "../navigation/navigation";
-import { SendFilled } from '@carbon/icons-react';
-import { CircleLoader } from "react-spinners";
 import WelcomeCreateUserPage from "../WelcomeCreateUserPage/WelcomeCreateUserPage";
 import UpcomingEvents from "../UpcomingEvents/UpcomingEvents";
 import { useLocation } from "react-router-dom";
 import { getRecommendation } from "../../services/llm.service";
 
-// import {fetchLQuestionResponse}  from "../../services/llm.service";
-
-const Homepage = (props) => {
+const Homepage = () => {
   const location = useLocation();
   const user = location.state?.user; // Get passed user data
+ 
   const [trigger, setTrigger]  = useState(false); //AIReccomend trigger state
   const [isLoading, setIsLoading] = useState(false);
-  const [inlineToastMsg, setInlineToastMsg] = useState(false);
-  const [notificationTitle, setNotificationTitle] = useState(
-    "Server is not reachable"
-  );
-  const [notificationKind, setNotificationKind] = useState("info");
+  // const [inlineToastMsg, setInlineToastMsg] = useState(false);
+  // const [notificationTitle, setNotificationTitle] = useState(
+  //   "Server is not reachable"
+  // );
+  // const [notificationKind, setNotificationKind] = useState("info");
   const [editForm, setEditForm] = useState(false);
-  const [showEvents, setShowEvents] = useState(user?.flow === "existing_user" ? true: false);
+
   const [currentClickedEvt, setCurrentClickedEvt] = useState({});
 
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
 
 
   // User details  
-  const [userDetails, setUserDetails] = useState(user);
+  const [userDetails, setUserDetails] = useState(() => {
+    // Initialize from location or localStorage
+    if (user) {
+      return user;
+    }
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+  });
 
+  const [showEvents, setShowEvents] = useState(userDetails?.flow === "existing_user" ? true: false);
+  
   // Event details  
   const [eventDetails, setEventDetails] = useState(userDetails?.user_events);
 
@@ -50,37 +47,26 @@ const Homepage = (props) => {
   const handleEditFormChange = (newValue) => {
     setEditForm(newValue);
   };
-
-  const handleShowEventsChange = (newValue) => {
+  const handleShowEventsChange = useCallback((newValue) => {
     setShowEvents(newValue);
-  };
-
-  const imgData = [{
-    gender: 'men',
-    data: [{ id: 1, src: "/imagerepo/image16.png", name: "Footwear" },
-    { id: 2, src: "/imagerepo/image3.png", name: "Apparel" },
-    { id: 3, src: "/imagerepo/image29.png", name: "Fragrance & Beauty" },
-    { id: 4, src: "/imagerepo/image45.png", name: "Accessories" },]
-  }, {
-    gender: 'female',
-    data: [{ id: 1, src: "/imagerepo/image18.png", name: "Footwear" }, //need to change
-    { id: 2, src: "/imagerepo/image11.png", name: "Apparel" },
-    { id: 3, src: "/imagerepo/image26.png", name: "Fragrance & Beauty" },
-    { id: 4, src: "/imagerepo/image42.png", name: "Accessories" },]
-  }
-
-  ]
-  const [images, setImages] = useState(imgData[1].data)
+  }, []);
+  
 
   useEffect(() => {
-    console.log('user', userDetails)
-    setEventDetails(userDetails?.user_events);
-  }, [userDetails, eventDetails, showEvents, handleShowEventsChange])
+    // Only save to localStorage once (if passedUser exists)
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    }
+  }, [user]);
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  useEffect(() => {
+    setEventDetails(userDetails?.user_events);
+  }, [userDetails, eventDetails, showEvents])
+
+  // const validateEmail = (email) => {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);
+  // };
 
   const emailChange = (value) => {
     setEmail(value);
@@ -92,7 +78,7 @@ const Homepage = (props) => {
   };
   const onClickRecommendation = (id) => {
     console.log("userDets -> ", userDetails)
-    let selectedEvent = userDetails.user_events.find((evt) => { return evt.event_id == id })
+    let selectedEvent = userDetails.user_events.find((evt) => { return evt.event_id === id })
 
     let payload = {
       query: {
@@ -123,7 +109,7 @@ const Homepage = (props) => {
       //update the userdetails
       console.log("Response: ->", response.response )
 
-      let obj = userDetails.user_events.find(item => item.event_id == currentData.query.event_id)
+      let obj = userDetails.user_events.find(item => item.event_id === currentData.query.event_id)
 
       // setIsLoadingMsg(false);
       if (response) {
@@ -148,17 +134,17 @@ const Homepage = (props) => {
       <Row>
         <Column>
           <div className="notification margin-dashboard">
-            {inlineToastMsg && (
+            {/* {inlineToastMsg && (
               <InlineNotification
                 title={notificationTitle}
                 // subtitle=""
                 kind={notificationKind}
               />
-            )}
+            )} */}
           </div>
         </Column>
       </Row>
-      <div className="login-page">
+      <div className="" style={{background: '', paddingTop: '2rem'}}>
         <Row>
           <Column lg={3} className="login-container" 
           >

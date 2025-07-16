@@ -4,23 +4,16 @@ import {
   Button,
   Tile,
   Row,
-  ClickableTile,
-  Tag,
   SkeletonPlaceholder,
-  OperationalTag,
 } from "@carbon/react";
 import "./UpcomingEvents.scss";
 import {
-  SendFilled,
-  Launch,
   AiRecommend,
   ShoppingCatalog,
   Add,
   Edit,
   Location,
   Event,
-  ColorPalette,
-  ArrowRight,
 } from "@carbon/icons-react";
 import ModalAddEdit from "../ModalAddEdit/ModalAddEdit";
 import CustomAILabel from "../CustomAILabel/CustomAILabel";
@@ -55,17 +48,18 @@ const UpcomingEvents = ({
   trigger,
 }) => {
   const facts = [
-    "👠 Louboutin’s red soles? Inspired by a bottle of nail polish! 👠",
-    "👜 A Hermès Birkin bag once sold for $500,000—more than a house! 👜",
-    "👗 The ‘Little Black Dress’ was once considered scandalous! 👗",
-    "💎 The world’s most expensive shoes are worth $17 million! 💎",
-    "🕶️ Sunglasses were first worn by judges in ancient China to hide emotions. 🕶️",
-    "🎩 Burberry invented the trench coat, but it wasn’t for fashion—it was military gear! 🎩",
-    "⌚ Some luxury watches take years to make—Rolex insists on perfection! ⌚",
-    "🏛️ The first high heels were worn by men in the 1600s for horse riding. 🏛️",
-    "✨ Marie Antoinette’s custom-made shoes still exist—valued at $50,000! ✨",
-    "🎭 Venetian women in the 15th century wore 20-inch platform shoes! 🎭",
+    "📱 The average fashion lover scrolls through over 2,000 outfits a week! 📱",
+    "👗 Virtual try-ons are changing the way we shop—goodbye dressing rooms! 👗",
+    "🎯 73% of users say personalized style suggestions make shopping way easier! 🎯",
+    "🛍️ Shoppers are 3x more likely to buy when they can visualize the outfit! 🛍️",
+    "🤳 Mirror selfies have officially replaced fitting rooms for fashion decisions! 🤳",
+    "📦 The top reason for returns? Wrong size. Fit tech is here to fix that! 📦",
+    "🔍 Most users decide in just 8 seconds if an outfit is a yes or no! 🔍",
+    "🌍 Sustainable fashion searches have doubled in the past year—style meets impact! 🌍",
+    "💬 Reviews with photos get 5x more clicks—seeing is believing in fashion! 💬",
+    "🎨 AI-generated outfit pairings are helping users discover new looks daily! 🎨",
   ];
+  
 
   const [selectedEventForModal, setSelectedEventForModal] = useState(null);
   const [imageData, setImageData] = useState<ImageData[]>([]);
@@ -417,21 +411,7 @@ const UpcomingEvents = ({
                         justifySelf: "right"
                       }}
                     >
-                      {/* <OperationalTag
-                        type="purple"
-                        onClick={() => handleNavigateToMoodboard(evt)}
-                        text="Design a Moodboard"
-                        renderIcon={ColorPalette}
-                      ></OperationalTag> */}
-                      {/* <Button
-                        style={{ minBlockSize: 0, padding: 0 }}
-                        kind="ghost"
-                        size="md"
-                        onClick={() => handleNavigateToMoodboard(evt)}
-                        renderIcon={ArrowRight}
-                      >
-                        Design a Moodboard
-                      </Button> */}
+                  
                     </div>
                   </Tile>
                 </Column>

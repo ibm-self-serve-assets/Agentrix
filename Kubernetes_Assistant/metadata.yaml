@@ -1,11 +1,73 @@
 # metadata.yaml
+title_name: Kubernetes Assistant
+short_description: Leveraging Generative AI capabilities can significantly help SREs to quickly understand the issue and possible resolution;
+long_description: |
+ Managing Kubernetes and Openshift environments could be a daunting task and requires deep skills in container technology.
+Leveraging Generative AI capabilities can significantly help SREs to quickly understand the issue and possible resolution; 
+while can significantly boost productivity of DevOps engineers by Kubernetes Code explanation, generation and review .
+This demo showcases how watsonx.ai augments to SRE & DevOps engineers' capabilities to handle day-to-day Kubernetes tasks.
+demo_explainer: demo-explainer.md
+architecture_diagram: KubernetesAssistant.drawio
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/Kubernetes_Assistant"
+models_used:
+  - granite3-8b-instruct
+  - Mistral Large
+ibm_products:
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+app_url: "https://kube-assistant.1uijsxnqve2c.us-south.codeengine.appdomain.cloud" 
+backend_url: ""
+orchestrate_agent: "no" 
+responsive_ui: "yes"
+example_prompts: 
+  - Ask a Question:
+    - How can I run a security scan for pod before it is provisioned?
+    - How can I run a security scan for pod before it is provisioned? Can I use admission controller for this purpose?
+    - What is NetworkPolicy?
+  - Generate K8s Code:
+    - Write code to allow traffic from only 'demo' namespace into the pods on port 4444 with label 'env=prod' ?
+    - Write Kubernetes yaml files to deploy application from the image quay.io/ecotz/sampleapp:1.0 and expose this as a ClusterIP service
+  - Explain Code & Review Code:
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+    name: sampleapp-deployment
+    spec:
+    replicas: 3
+    selector:
+    matchLabels:
+    app: sampleapp
+    template:
+    metadata:
+    labels:
+    app: sampleapp
+    spec:
+    containers:
+    - name: sampleapp
+    image: quay.io/ecotz/sampleapp:1.0
+    apiVersion: v1
+    kind: Service
+    metadata:
+    name: sampleapp-service
+    spec:
+    selector:
+    app: sampleapp
+    ports:
+    - protocol: TCP
+    port: 80
+    targetPort: 8080
+    type: ClusterIP
 
-tile_name: "<tile_name>"
-short_description: "<short_description>"
-long_description: "<long_description>"
-demo_explainer: "<demo_explainer>"
-architecture_diagram: "<architecture_diagram>"
-repository_url: "<repository_url>" # Leave blank, will be updated after deployment
-models_used: "<models_used>"
-ibm_products: "<ibm_products>"
-app_url: ""  # Leave blank, will be updated after deployment
+workflow: "### Planned Major Functionalities\n1. **Cluster Connectivity**\n   * Users will upload a **kubeconfig file** to connect to their Kubernetes or OpenShift cluster.\n   * Only **read-only access** will be required.\n2. **Namespace & Resource Selection**\n   * Users will select a **namespace** to list **unhealthy pods** or choose a **deployment/statefulset** to initiate a **security scan**.\n3. **Diagnosis with watsonx**\n   * On selecting an **unhealthy pod**, the agent will generate a **summary and recommended resolution** using watsonx.\n4. **Security Vulnerability Scanning**\n   * Users will scan selected **deployments/statefulsets** for vulnerabilities and receive **AI-generated recommendations**.\n5. **Ask a Kubernetes Question**\n   * An AI assistant will help users understand specific resolution steps or Kubernetes concepts as needed.\n6. **Peer Review Kubernetes Code**\n   * If issues relate to pod definitions, the agent will provide a **peer review** of the Kubernetes code for the owning resource (e.g., Deployment, StatefulSet).\n7. **Explain Kubernetes Code**\n   * Users will receive **detailed explanations** of any selected Kubernetes YAML definitions.\n8. **Kubernetes Code Generation**\n   * The agent will allow generation of YAML manifests for resources like **ConfigMaps**, **Secrets**, and **Deployments**.\n---\n### Planned Tech Stack\n* **AI Engine**: watsonx.ai\n* **Supported Platforms**: Kubernetes and OpenShift\n* **Cluster Access**: kubeconfig with **read-only permissions**\n---\n### Proposed Flow\n1. **Connect to Cluster**\n   → Upload kubeconfig → Establish read-only connection\n2. **Select Namespace or Resource**\n   → Choose namespace → List unhealthy pods\n   → Or select deployment/statefulset → Initiate scan\n3. **Run AI-Driven Tasks**\n   → Diagnose unhealthy pods\n   → Scan for vulnerabilities\n4. **Interact & Act with AI**\n   → Ask questions about resolutions\n   → Peer review resource definitions\n   → Explain YAML configurations\n   → Generate new Kubernetes manifests"
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - WX_PROJECT_ID
+  - WX_API_KEY
+  - WX_URL
+  - SERPER_API_KEY
+  - TEAM_NAME
+  - CONTACT_EMAILS

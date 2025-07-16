@@ -1,11 +1,31 @@
-# metadata.yaml
-
-tile_name: "<tile_name>"
-short_description: "<short_description>"
-long_description: "<long_description>"
-demo_explainer: "<demo_explainer>"
-architecture_diagram: "<architecture_diagram>"
-repository_url: "<repository_url>" # Leave blank, will be updated after deployment
-models_used: "<models_used>"
-ibm_products: "<ibm_products>"
-app_url: ""  # Leave blank, will be updated after deployment
+title_name: Financial Advisory Tool
+short_description: Financial Advisory Tool revolutionizes the way individuals and organizations approach financial planning and investment management
+long_description: |
+  Financial Advisory Tool is an innovative, AI-powered platform designed to revolutionize the way individuals and organizations approach financial planning and investment management. By harnessing advanced agentic AI capabilities, this system enables users to create, monitor, and optimize entire investment portfolios tailored to their unique financial situations and long-term visions.
+  Whether you are a seasoned investor or just starting your financial journey, the Financial Advisory Tool provides a comprehensive, data-driven solution that adapts to your goals, risk appetite, and evolving market conditions. The platform goes beyond traditional advisory services by offering personalized recommendations, actionable insights, and strategic guidance—all in one intuitive interface.
+demo_explainer: demo-explainer.md
+architecture_diagram: ecomm.drawio
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/Financial-Advisory-Tool-main"
+models_used:
+  - watsonx/meta-llama/llama-3-3-70b-instruct
+ibm_products:
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+app_url: "https://kube-assistant.1uijsxnqve2c.us-south.codeengine.appdomain.cloud" 
+backend_url: "https://financial-agent-backend.1wsx8u64qhw7.us-south.codeengine.appdomain.cloud"
+orchestrate_agent: "no" 
+responsive_ui: "yes"
+example_prompts: 
+ - Hello, I'm Priya from Mumbai. My monthly income is 1.8 Lacs and my expenses are about 70K. I'm interested in building wealth over the next 10 years and can take moderate risks. Please suggest a good investment plan.
+ - Hi, I'm Rajesh, a 40-year-old from Delhi. I earn 3 Lacs per month and spend about 1.2 Lacs. I want to save for my children's education and my retirement. I prefer safe and tax-saving investments.
+workflow: "## ✨ Key Features\n\n- **🔍 Personalized Portfolio Creation**  \n  Instantly generate and adjust investment portfolios based on your financial profile, risk preferences, and desired time horizons.\n\n- **🛡️ Risk-Based Design Plan**  \n  Receive portfolio recommendations that align with your risk tolerance, ensuring both growth and security.\n\n- **📊 Complete Allocation Plan**  \n  Access detailed asset allocation strategies for a balanced and diversified investment approach.\n\n- **🆘 Contingency Plan Allocation**  \n  Prepare for uncertainties with robust contingency planning features.\n\n- **💸 Tax Saving Guide**  \n  Discover tailored strategies to optimize your tax liabilities and maximize returns.\n\n- **📝 Implementation Guide**  \n  Step-by-step instructions to seamlessly put your financial plan into action.\n\n- **✅ Do’s & Don’ts**  \n  Benefit from expert tips that help you avoid common pitfalls and make informed decisions.\n\n- **💡 Investment Suggestions**  \n  Get AI-driven suggestions on investment areas, leveraging analysis of the past five years of specific asset performance.\n\n- **📚 Glossary-Driven User Profile**  \n  Easily understand your financial status and plan components with a clear, glossary-style user profile.\n\nWith intelligent automation, real-time analytics, and a user-centric design, the Financial Advisory Tool empowers you to take control of your financial future with confidence and clarity."
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - VITE_BACKEND_URL
+  - WATSONX_API_KEY
+  - WATSONX_PROJECT_ID
+  - WATSONX_URL

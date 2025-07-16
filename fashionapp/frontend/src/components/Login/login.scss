@@ -1,5 +1,35 @@
-.login-page{
-    // height: calc(100vh - 80px);
+// .login-page{
+//     // height: calc(100vh - 80px);
+//   background-image: url("../../../public/bg-images/login-bg.png");
+//     margin-top: 1rem;
+//     background-repeat: no-repeat;
+//   background-size: cover; /* optional: makes it fill the container */
+//   background-position: center;
+//   opacity: 0.5; /* adjust this value for desired transparency */
+//   z-index: -1;
+// }
+.login-page {
+    position: relative;
+    height: calc(100vh - 30px);
+    z-index: 1;
+    overflow: auto;
+    background-color: black;
+    // color: #000; /* or any text color */
+  }
   
-    margin-top: 1rem;
-}
+  .login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../public/bg-images/login-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5); /* Makes it darker without transparency */
+    // opacity: 0.2; /* Set your desired opacity */
+    z-index: -1; /* Send behind content */
+  }
+  

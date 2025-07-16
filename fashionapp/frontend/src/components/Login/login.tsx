@@ -1,22 +1,22 @@
-import React, { useState } from "react";
 import './login.scss';
 import { Row, Column, Button } from "@carbon/react";
 import { Launch } from '@carbon/icons-react';
 import { useNavigate } from "react-router-dom";
+import Footer from '../Footer/Footer';
 
 const LoginPage = () => {
 
     const navigate = useNavigate();
     return (
-        <div className="login-page" style={{  height: 'calc(100vh - 80px)'}}>
+        <div className="login-page" style={{  textAlign: 'center'}}>
 
             <Row>
-                <Column lg={8} style={{ padding: '11rem 5rem 0 5rem' }}>
+                <Column lg={16} style={{ padding: '13rem 5rem 11.5rem 5rem' }}>
                     <div>
-                        <h2>Intelligent AI styling—effortlessly curate, organize, and refine your wardrobe with ease.</h2></div>
+                        <h1 style={{fontWeight: 800}}>AI-Powered Wardrobe — Effortless organization, personalized styling, and smart fashion choices.</h1></div>
                     <div>
                         <div style={{ margin: "2rem 0" }}>
-                            <h4>Design and personalize your ideal wardrobe using our planner to discover the perfect outfit pairings for any occasion.</h4>
+                            <h3 style={{fontWeight: 500}}>Craft your signature style with a smart planner that perfects every outfit combo.</h3>
                         </div>
                         <div>
                             <Button
@@ -36,20 +36,10 @@ const LoginPage = () => {
                             </div>
                     </div>
                 </Column>
-                <Column lg={8} style={{ padding: '11rem 5rem 0 5rem' }}>
-                    <img src="/loginpage.jpg" width={400} height={400}></img>
-                </Column>
             </Row>
-     <Row>
-        <Column>
-        <footer>
-                <div className="footer" style={{ padding: '2rem' }}>
-                    <p style={{ marginBottom: '0.5rem' }}>Powered by <strong>IBM watsonx</strong> © 2025</p>
-                    <img src="./ibm-logo-black.png" alt="IBM watsonx Logo" style={{ height: '30px', 'margin': '0 10px' }} />
-                </div>
-            </footer>
-        </Column>
-     </Row>
+   
+        <Footer/>
+        
         </div>
     );
 };

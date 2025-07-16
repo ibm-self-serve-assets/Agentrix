@@ -1,0 +1,38 @@
+# metadata.yaml
+
+title_name: "E-commerce Assistant"
+short_description: "The E-commerce Assistant is an AI-powered agent designed to streamline the online shopping experience"
+long_description: "The E-commerce Assistant is an AI-powered agent designed to streamline the online shopping experience by providing instant access to personalized product insights, reviews, and purchasing support—all within a single conversational interface. It helps users discover products based on their needs, compare features across similar items, and make informed purchase decisions without navigating multiple tabs or websites. Whether it’s summarizing in-depth product reviews or highlighting the best-value options, the agent serves as a smart, always-available shopping companion."
+demo_explainer: demo-explainer.md
+architecture_diagram: ecomm.drawio
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/e-commerce-analysis-agent" # Leave blank, will be updated after deployment
+models_used:
+  - watsonx/meta-llama/llama-3-3-70b-instruct
+ibm_products:
+  - watsonx.ai
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+app_url: "https://e-comm-frontend.1ww65sf49tch.us-south.codeengine.appdomain.cloud"  # Leave blank, will be updated after deployment
+backend_url: "https://e-comm-backend.1ww65sf49tch.us-south.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "no" 
+responsive_ui: "yes"
+example_prompts:
+  - What products did Alice buy?
+  - What was her reaction to product
+  - What are product id and prices of those product
+workflow: "## E-commerce Analysis Agent – Project Proposal\n\n### 📝 Project Overview\n\nThe **E-commerce Analysis Agent** is a cutting-edge AI-powered solution designed to empower retail and e-commerce managers with real-time, unified insights into product performance. By integrating **structured data** (e.g., sales and inventory from IBM DB2) with **unstructured data** (e.g., customer reviews and social media sentiment stored in a vector database), this agent leverages **LLMs** and **Retrieval-Augmented Generation (RAG)** to offer rich, conversational analytics.\n\nThis agent allows stakeholders to ask **natural language questions** about product performance, customer reactions, and inventory trends — and get actionable, explainable responses based on live data.\n\n---\n\n### 💡 Business Components\n\n#### 🔍 Challenges Addressed\n\n* Fragmented data across different platforms delaying performance analysis.\n* Lack of integration between customer sentiment and quantitative metrics.\n* Manual, time-intensive decision-making processes.\n\n#### 🚀 Value Proposition\n\n* Unified view of structured (SQL) and unstructured (vector) data sources.\n* Real-time, personalized product performance analytics.\n* Automates data retrieval and synthesis using advanced AI agents.\n\n#### 📈 Key Business Benefits\n\n* **15–20% increase** in conversion rates via sentiment-personalized marketing.\n* Reduced decision latency through instant insights.\n* Enhanced customer understanding and faster product feedback loops.\n\n---\n\n### 🔁 Agent Workflow\n\nThe agent is built on a **Reasoning + Action (ReAct)** framework, making its decision-making transparent and explainable.\n\n#### 🔄 Reasoning Flow: `Thought → Action → Observation → Answer`\n\n1. **Thought:** Parses the user’s natural language query.\n2. **Action:** Queries SQL database (e.g., purchase history) or vector DB (e.g., sentiment).\n3. **Observation:** Gathers and processes the retrieved data.\n4. **Answer:** Synthesizes the response with clear reasoning for the user.\n---\n\n### 🔗 Interaction Flow Diagram\n\n```\nUser (Manager)\n    ↓\nNatural Language Query (e.g., What was Alice feedback on the shoes?)\n    ↓\nLLM Agent (LangChain / LangGraph)\n    ↓\n[Reasoning Loop: Thought → Action → Observation → Answer]\n    ↓\nQuery SQL DB (IBM DB2) → Purchase Data\nQuery Vector DB (Milvus) → Review Sentiment\n    ↓\nAnswer Generation (watsonx.ai)\n    ↓\nFinal Response Displayed (via React UI)\n```\n\n---\n\n### 🛠️ Tech Stack\n\n| Component          | Technology Used                |\n| ------------------ | ------------------------------ |\n| **Backend**        | FastAPI, LangChain, LangGraph  |\n| **Frontend**       | React + Vite (optional)        |\n| **LLM Models**     | watsonx.ai Foundation Models   |\n| **Infrastructure** | IBM Cloud, Docker              |\n| **Databases**      | IBM DB2 (SQL), Milvus (Vector) |\n| **Deployment**     | Docker Compose or IBM Cloud    |\n"
+wxo_agent_name : NA
+import_script_path: NA
+is_customizable: "no"
+tile_image_path: 
+env:
+  - VITE_BACKEND_URL
+  - VITE_API_KEY
+  - VITE_CHATBOT_NAME
+  - VITE_WELCOME_MESSAGE
+  - VITE_ENABLE_CHAT
+  - IBM_CLOUD_API_KEY
+  - WX_PROJECT_ID
+  - WX_ENDPOINT
+  - FASTAPI_KEY
+  - TAVILY_API_KEY

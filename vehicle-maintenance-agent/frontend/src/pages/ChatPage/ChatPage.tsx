@@ -36,17 +36,11 @@ const wrappedChatOrchestrate = async (
 
   const { messages, waiting, sendMessage, newChat, toggleReasoningFlag } = useChatBot({ defaultMessage, senderType: "assistant", getResponse: wrappedChatOrchestrate })
 
-  // const samplePrompts = [
-  //   "Can you do an end to end planning for the upcoming 4 weeks",
-  //   "Forecast sales for SKU001 for the next month",
-  //   "We need to restock SKU001 and choose the best vendor.",
-  //   "Verify compliance of Supplier A with ESG norms",
-  // ]
 
   const samplePrompts = [
    "What does the engine temperature warning light mean?",
-"My car is shaking and I have the engine temperature warning light on can you diagnose it?",
-"Where is the nearest service center?"
+   "My car is shaking and I have the engine temperature warning light on can you diagnose it?",
+   "Where is the nearest service center?"
   ]
   
 useEffect(() => {

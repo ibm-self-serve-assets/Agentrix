@@ -1,9 +1,32 @@
-tile_name: Vehicle Maintenance Agent
-short_description: An AI agent that helps users manage vehicle maintenance tasks.
+title_name: Vehicle Maintenance Agent
+short_description: The Vehicle Maintenance Assistant is an AI agent that helps car owners diagnose issues through natural language inputs like “My car is shaking,” using telematics, DTCs, and vehicle data. It provides personalized guidance.
 long_description: An AI agent designed to assist users in managing their vehicle maintenance tasks, providing reminders, scheduling services, and offering advice on vehicle care.
 demo_explainer: demp-explainer.md
 architecture_diagram: vehicle-maintenance-agent.drawio
-repository_url: <repository_url> # Leave blank, will be updated after deployment
+repository_url: "https://github.com/ibm-self-serve-assets/Agentrix/tree/main/vehicle-maintenance-agent" # Leave blank, will be updated after deployment
 models_used: meta-llama/llama-3-2-90b-vision-instruct
-ibm_products: watsonx Orchestrate
-app_url: ""  # Leave blank, will be updated after deployment
+ibm_products: 
+  - watsonx Orchestrate
+app_url: "https://wxo-vehicle-maintenance.1ww65sf49tch.us-south.codeengine.appdomain.cloud"  # Leave blank, will be updated after deployment
+backend_url: "https://vehicle-maintenance.1ww65sf49tch.us-south.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "yes" 
+responsive_ui: "yes"
+example_prompts: 
+  - What does the engine temperature warning light mean?
+  - My car is shaking and I have the engine temperature warning light on can you diagnose it?
+  - Where is the nearest service center?
+workflow: "# 🚗 Vehicle Maintenance Agent\n\nThe Vehicle Maintenance Assistant is an AI Agent designed to help car owners identify and understand vehicle issues by interpreting natural language inputs like “My car is shaking” or “Check engine light is on.” It combines real-time telematics data, diagnostic trouble codes (DTCs), and vehicle documentation to offer personalized, accurate diagnostics and actionable guidance such as finding nearby service centers, etc. The system can be deployed with a FastAPI backend and React-based frontend.\n\n---\n\n## ✨ Key Features\n\n- Customer Experience: Reduces stress for drivers by providing instant, understandable insights.\n- Service Optimization: Reduces unnecessary service visits and helps service centers prioritize real issues.\n- Brand Loyalty: Builds trust by offering proactive, intelligent support post-purchase.\n- Data Utilization: Leverages telematics data and DTC documentation to deliver accurate, data-driven support.\n- Scalability: Easily extendable across vehicle models, regions, and support channels (mobile app, web, IVR).\n\n## Example Prompt\n\n- What does the engine temperature warning light mean?\n- My car is shaking and I have the engine temperature warning light on can you diagnose it?\n- Where is the nearest service center?"  
+wxo_agent_name : "Vehicle maintenance agent"
+import_script_path: "backend/import-all.sh"
+is_customizable: "no"
+tile_image_path: "supply-chain-agent/frontend/public/vehicle_maintence.jpg"
+env:
+  - IAM_API_KEY
+  - INSTANCE_ID
+  - AGENT_ID
+  - WXO_INSTANCE_URL
+  - VITE_BACKEND_URL
+  - VITE_CHATBOT_NAME
+  - VITE_WELCOME_MESSAGE
+  - VITE_ENABLE_CHAT
+  - VITE_APP_NAME
