@@ -1,6 +1,7 @@
 from beeai_framework.tools import StringToolOutput, tool
 import requests
 import os
+import re
 
 class MaximoInventoryTool:
 
@@ -8,129 +9,137 @@ class MaximoInventoryTool:
         self.api_key = os.getenv("MAXIMO_APIKEY", "")
         self.base_url = os.getenv("MAXIMO_BASE_URL", "")
 
-    def get_item_url(self, itemnum: str) -> dict:
+    def get_workorder_url(self, wonum: str, siteid: str = "BEDFORD") -> str:
+        url = f"{self.base_url}/maximo/api/os/MXAPIWODETAIL"
+        query = f'?lean=1&ignorecollectionref=1&oslc.select=wonum,description,siteid&oslc.where=wonum="{wonum}" and siteid="{siteid}"'
+
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "apikey": self.api_key
+        }
+
+        res = requests.get(url + query, headers=headers, verify=False)
+        print("\nGet Workorder URL Response:", res.status_code)
+
+        if res.status_code == 200:
+            href = res.json().get("member", [{}])[0].get("href")
+            return href + "?lean=1&ignorecollectionref=1" if href else None
+        return None
+
+
+    
+    def add_item(self, items_with_locations: list, wonum: str, siteid: str) -> bool:
         """
-        Fetch item number and store location from Maximo Inventory.
+        Update multiple items with their locations to a Work Order in Maximo.
 
         Args:
-            itemnum (str): Item number to search for.
-
-        Returns:
-            dict: A dictionary with itemnum and storeloc, or error.
-        """
-        try:
-            url = f"{self.base_url}maximo/api/os/MXINVENTORY"
-            query = f'?lean=1&ignorecollectionref=1&oslc.select=itemnum,location&oslc.where=itemnum="{itemnum}"'
-
-            headers = {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "apikey": self.api_key
-            }
-
-            print(url+query)
-            res = requests.get(url + query, headers=headers, verify=False)
-        
-            print("\nGet item URL Response:", res.status_code)
-
-            if res.status_code == 200:
-                print("Data = ", res)
-                data = res.json()
-                if "member" in data and len(data["member"]) > 0:
-                    items = data["member"][0]  # Assuming you want the first match
-                    storeloc = items.get("location", "N/A")
-                    print("mxapiitem response = ", storeloc)
-
-                    result = {
-                        "itemnum": items.get("itemnum", "N/A"),
-                        "storeloc": storeloc
-                    }
-
-                    print("Response from Maximo API = ", result)
-                    return result
-                else:
-                    print("No items found.")
-                    return {"error": "No items found"}
-            return {"error": f"Failed to fetch item. Status code: {res.status_code}"}
-        except Exception as e:
-            return {"error": f"Request failed: {str(e)}"}
-
-    def add_item(self, itemnum: str, location: str, wonum: str, siteid: str) -> bool:
-        """
-        Add an item and location to a Work Order in Maximo.
-
-        Args:
-            itemnum (str): Item number to add.
-            location (str): Store location.
+            items_with_locations (list): List of dicts with 'itemnum' and 'location'.
             wonum (str): Work Order number.
             siteid (str): Site ID.
 
         Returns:
-            bool: True if item added successfully, False otherwise.
+            bool: True if items added successfully, False otherwise.
         """
         try:
-            url = f"{self.base_url}/maximo/api/os/MXAPIWODETAIL"
-            query = f'?lean=1&ignorecollectionref=1&oslc.select=wonum,description,siteid&oslc.where=wonum="{wonum}" and siteid="{siteid}"'
+            if not items_with_locations:
+                raise ValueError("No item-location pairs provided.")
+
+            url = self.get_workorder_url(wonum)
+            print("Work order URL:", url)
+
+            if not url:
+                print("Work order URL not found.")
+                return False
+
+            match = re.search(r'mxapiwodetail/([^/]+)', url)
+            if not match:
+                print("Work order ID not found in URL.")
+                return False
+
+            id_value = match.group(1)
+            final_url = f"{self.base_url}/maximo/api/os/mxapiwodetail/{id_value}?lean=1&ignorecollectionref=1"
 
             headers = {
                 "Content-Type": "application/json",
+                "Accept": "application/json",
                 "apikey": self.api_key,
-                "x-method-override": "patch"
+                "x-method-override": "PATCH",
+                "properties": "*"
             }
 
-            res = requests.get(url + query, headers=headers, verify=False)
+            payload = {
+                "wonum": wonum,
+                "siteid": siteid,
+                "wpmaterial": items_with_locations
+            }
 
-            if res.status_code == 200:
-                href = res.json().get("member", [{}])[0].get("href")
-                if href:
-                    hrefurl = href.replace("http://localhost/", self.base_url)
-                    post_url = f"{hrefurl}?lean=1"
+            print("POST URL:", final_url)
+            print("Payload:", payload)
 
-                    payload = {
-                        "wonum": wonum,
-                        "siteid": siteid,
-                        "wpmaterial": {
-                            "itemnum": itemnum,
-                            "location": location
-                        }
-                    }
+            post_res = requests.post(final_url, json=payload, headers=headers, verify=False)
+            print("POST Response:", post_res.status_code, post_res.text)
 
-                    post_res = requests.post(post_url, json=payload, headers=headers, verify=False)
-                    return post_res.status_code == 204
+            if post_res.status_code in [200, 201, 204]:
+                return True
+
             return False
         except Exception as e:
             print(f"Error during add_item: {str(e)}")
             return False
 
-@tool
-def post_inventory(itemnum: str, wonum: str, siteid: str) -> StringToolOutput:
-    """
-    Post an inventory item to a Maximo work order by providing the item number, 
-    work order number, and site ID as input parameters.
 
-    This tool retrieves the store location of the item and adds the item to the specified work order in Maximo.
+# @tool
+# def post_inventory(itemnum: str, wonum: str, siteid: str) -> StringToolOutput:
+#     """
+#     Post an inventory item to a Maximo work order by providing the item number, 
+#     work order number, and site ID as input parameters.
+
+#     This tool retrieves the store location of the item and adds the item to the specified work order in Maximo.
+
+#     Args:
+#         itemnum (str): The item number.
+#         wonum (str): The Work Order number.
+#         siteid (str): The site ID.
+
+#     Returns:
+#         str: Success or error message.
+#     """
+#     inventory_tool = MaximoInventoryTool()
+
+#     # Step 1: Get the item's store location
+#     item_info = inventory_tool.get_item_url(itemnum)
+#     if "error" in item_info:
+#         return f"Failed to retrieve item details: {item_info['error']}"
+
+#     storeloc = item_info["storeloc"]
+
+#     # Step 2: Add item to the work order
+#     success = inventory_tool.add_item(itemnum=itemnum, location=storeloc, wonum=wonum, siteid=siteid)
+#     if success:
+#         return f"Successfully posted item '{itemnum}' with store location '{storeloc}' to work order '{wonum}' for site '{siteid}'."
+#     else:
+#         return "Failed to post inventory item to the Work Order."
+
+
+@tool
+def post_multiple_inventory(items_with_locations:list, wonum: str, siteid: str) -> StringToolOutput:
+    """
+    Update multiple inventory items with their locations to a Maximo work order.
 
     Args:
-        itemnum (str): The item number.
-        wonum (str): The Work Order number.
-        siteid (str): The site ID.
+        items_with_locations (list): List of item numbers with Store Locations.
+        wonum (str): Work Order number.
+        siteid (str): Site ID.
 
     Returns:
         str: Success or error message.
     """
     inventory_tool = MaximoInventoryTool()
 
-    # Step 1: Get the item's store location
-    item_info = inventory_tool.get_item_url(itemnum)
-    if "error" in item_info:
-        return f"Failed to retrieve item details: {item_info['error']}"
-
-    storeloc = item_info["storeloc"]
-
-    # Step 2: Add item to the work order
-    success = inventory_tool.add_item(itemnum=itemnum, location=storeloc, wonum=wonum, siteid=siteid)
+    success = inventory_tool.add_item(items_with_locations=items_with_locations , wonum=wonum, siteid=siteid)
     if success:
-        return f"Successfully posted item '{itemnum}' with store location '{storeloc}' to work order '{wonum}' for site '{siteid}'."
+        return f"Successfully posted {len(items_with_locations)} item(s) to work order '{wonum}' at site '{siteid}'."
     else:
-        return "Failed to post inventory item to the Work Order."
+        return "Failed to post inventory items to the Work Order."
 

@@ -152,7 +152,7 @@ async def generate(input_text: str) -> str:
     description_response = await agent.run(
         workorder_description_prompt,
         execution=AgentExecutionConfig(
-            max_retries_per_step=3,
+            max_retries_per_step=1,
             total_max_retries=10,
             max_iterations=20,
             # tools=maximo_get_location
@@ -167,12 +167,12 @@ async def generate(input_text: str) -> str:
     # Provide a concise list of 4 to 5 specific materials for fixing the {coords['description']} issue. Ensure that these materials will guarantee a successful repair by the technician at the customer's location. The response should only include the material names in an array format, without any additional descriptions or details or spaces after comma.
     # """
     inventory_prompt = f"""
-    Provide a concise list of 4 to 5 specific materials for fixing the {description_summary} issue. Ensure that these materials will guarantee a successful repair by the technician at the customer's location. The response should only include the material names in an array format, without any additional descriptions or details or spaces after comma.
+    Provide a concise list of 4 to 5 specific materials for fixing the {description_summary} issue without using any tool. Ensure that these materials will guarantee a successful repair by the technician at the customer's location. The response should only include the material names in an array format, without any additional descriptions or details or spaces after comma.
     """
     inventory_response = await agent.run(
                             inventory_prompt,
                             execution=AgentExecutionConfig(
-                                max_retries_per_step=3,
+                                max_retries_per_step=1,
                                 total_max_retries=10,
                                 max_iterations=20,
                                 
@@ -182,15 +182,37 @@ async def generate(input_text: str) -> str:
     print("inventory response = ",inventory_response)
     inventory_summary = ''.join([m.text for m in inventory_response.result.content])
 
+    store_location_prompt = f"""
+    You are given a list of item descriptions required to resolve a work order issue {inventory_summary}.
+    Now Get item detail and store locations for these items.
+    """
+
+    store_location_response = await agent.run(
+                            store_location_prompt,
+                            execution=AgentExecutionConfig(
+                                max_retries_per_step=3,
+                                total_max_retries=10,
+                                max_iterations=20,
+                                
+                            )
+                        ).observe(observer)
+    
+    print("store location response = ",store_location_response)
+    store_location_summary = ''.join([m.text for m in store_location_response.result.content])
+
     post_inventory_prompt = f"""
-    For work order **{wonum}**, extract the item number from the provided inventory summary  **{inventory_summary}**, 
-    retrieve the store location for the item, and add the item to the work order in Maximo and use site id from {description_summary}.
+    You are given a list of item dictionaries: {store_location_summary}
+
+    Each item has 'itemnum' and 'location'. Use this list **as-is** for the `items_with_locations` field.
+
+    Get `wonum` and `siteid` from: {description_summary}.
+    and update these details in maximo.
     """
 
     post_inventory_response = await agent.run(
                             post_inventory_prompt,
                             execution=AgentExecutionConfig(
-                                max_retries_per_step=3,
+                                max_retries_per_step=1,
                                 total_max_retries=10,
                                 max_iterations=20,
                                 
@@ -202,25 +224,20 @@ async def generate(input_text: str) -> str:
     
     summary = description_summary + inventory_summary + post_inventory_summary
 
-    summary_prompt = f""" You are a helpful assistant to get inventory added in maximo. The variable  {summary} contains the raw decision output (e.g., issue description , tools, and inventoy scheduling info).
+    # summary_prompt = f"""You are a helpful assistant for summarization: using the raw decision output in {summary}, respond naturally and conversationally to {input_text}, rephrasing without repeating verbatim."""
 
-        Respond to the user's **{input_text}** naturally and conversationally:
+    # summary_response = await agent.run(
+    # summary_prompt,
+    # execution=AgentExecutionConfig(
+    #     max_retries_per_step=1,
+    #     total_max_retries=10,
+    #     max_iterations=1,
+    #     # tools=update_workorder_tool
+    #     )
+    # ).observe(observer)
 
-        Use `summary` to guide your answer but **don’t repeat it verbatim** — rephrase it based on input text.
-        """
+    # final_summary = '\n'.join([m.text for m in summary_response.result.content])
 
-    summary_response = await agent.run(
-    summary_prompt,
-    execution=AgentExecutionConfig(
-        max_retries_per_step=3,
-        total_max_retries=10,
-        max_iterations=5,
-        # tools=update_workorder_tool
-        )
-    ).observe(observer)
+    # print("final summary after all agents = ",final_summary)
 
-    final_summary = '\n'.join([m.text for m in summary_response.result.content])
-
-    print("final summary after all agents = ",final_summary)
-
-    return final_summary
+    return summary
