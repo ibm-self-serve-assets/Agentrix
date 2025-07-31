@@ -1,0 +1,12 @@
+[project]
+name = "agentrix"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "beeai-framework>=0.1.14",
+    "fastapi>=0.115.12",
+    "termcolor>=3.0.1",
+    "uvicorn[standard]>=0.34.1",
+]

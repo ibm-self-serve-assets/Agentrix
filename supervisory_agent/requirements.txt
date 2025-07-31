@@ -1,0 +1,23 @@
+fastapi
+uvicorn[standard]
+beeai-framework
+termcolor
+
+
+# Core SDK and framework dependencies
+acp_sdk>=1.0.1      # Requires Python >=3.11
+beeai-framework
+
+# Optional utility (you might need to create or specify where TranslationTool comes from)
+# If translation_tool is a local module, omit it from here
+
+# Python standard libraries like collections.abc and functools don't need to be listed
+
+# Specific versions to avoid known conflicts with acp_sdk and others
+protobuf>=5,<6         # If using streamlit or Google-auth in same environment
+cachetools<6        # Avoid conflict with google-auth and streamlit
+tenacity<9          # Required by streamlit
+urllib3~=1.26.19    # Compatible with ibm-wos-utils, if needed
+
+# If using chat models or LLM APIs
+openai>=1.13.3      # Optional: if ChatModel uses OpenAI
