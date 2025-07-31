@@ -72,7 +72,6 @@ class MaximoInventoryTool:
             payload = {
                 "wonum": wonum,
                 "siteid": siteid,
-                "status" : "APPR",
                 "wpmaterial": items_with_locations
             }
 

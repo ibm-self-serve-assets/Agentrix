@@ -52,7 +52,6 @@ class MaximoTool:
         }
 
         payload = json.dumps({
-            "status" : "APPR",
             "schedstart": sched_start,
             "schedfinish": sched_finish
         })
