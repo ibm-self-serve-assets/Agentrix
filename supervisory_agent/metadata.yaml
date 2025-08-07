@@ -1,0 +1,93 @@
+title_name: Maximo Planner Agent
+short_description: AI-powered orchestration system that automates Maximo work order management using IBM watsonx Orchestrate. It coordinates weather, inventory, and labor agents to handle key decision-making for maintenance operations.
+long_description: |
+  The Maximo Supervisory Agent is an intelligent orchestration system built using IBM watsonx Orchestrate.
+  It automates key components of Maximo enterprise asset management, including weather assessments for field tasks,
+  real-time inventory availability checks, and labor scheduling. A Supervisory Agent acts as the central controller,
+  routing natural language queries to the appropriate sub-agents and synthesizing results for end-to-end work order optimization.
+  The system is deployed with a FastAPI backend and supports an optional React-based frontend for streamlined interaction.
+
+demo_explainer: demo-explainer.md
+architecture_diagram: MaximoAgentOrg.drawio
+repository_url: ""  # Will be added after deployment
+models_used:
+  - watsonx/meta-llama/llama-3-1-70b-instruct
+  - watsonx/granite-13b-instruct
+ibm_products:
+  - watsonx.ai
+  - IBM Maximo Application Suite
+  - IBM Cloud Code Engine
+  - IBM Cloud Container Registry
+  - 
+app_url: ""  # Will be added after deployment
+backend_url: "https://wrapper-supervisory-agent.1v42372h1yjp.us-east.codeengine.appdomain.cloud/docs"
+orchestrate_agent: "no"
+is_chat : "yes"
+responsive_ui: "no"
+example_prompts:
+  - Plan the unplanned workorder  
+  - Plan workorder 1307  
+  - Plan workorder 1307 based on weather conditions  
+  - Plan workorder 1307 based on inventory availability  
+  - Assign labor to workorder 1307 based on their availability  
+  - Schedule workorder 1307 considering weather forecast  
+  - Check inventory before planning workorder 1307  
+  - Assign available technician to workorder 1307  
+  - Is it feasible to plan workorder 1307 today based  on weather?  
+  - What’s the availability of inventory for workorder 1307?  
+  - Who can be assigned to workorder 1307?  
+  - Plan workorder 1307 using weather, inventory, and labor data   
+  - Plan field work for workorder 1307  
+workflow: |
+  # Maximo Supervisory Agent
+
+  This application simulates AI-powered decision-making in **Maximo** by integrating **Maximo REST APIs** with a multi-agent architecture powered by the **bee-ai framework**. The central **Supervisory Agent**, built using **bee-ai + ACP server**, interprets user prompts and routes them through a sequential agentic workflow:
+
+  **Flow:**  
+  **Weather Agent → Inventory Agent → Labor Agent**
+
+  Each specialized agent is developed using the **bee-ai framework**, while the supervisory logic is orchestrated using the **bee-ai + ACP server**. This setup enables intelligent, step-by-step decision-making for planning and scheduling Maximo work orders based on environmental, inventory, and labor conditions.
+
+  
+  ## Key Agents
+
+  - **Weather Agent** – Determines environmental readiness for field work using Open-Meteo and wttr.in APIs.
+  - **Inventory Agent** – Queries Maximo inventory availability for a given work order.
+  - **Labor Agent** – Assigns or verifies technicians for scheduled work orders.
+  - **Supervisory Agent** – The controller agent that handles routing and task synthesis across all agents.
+
+  ---
+
+  ## Architecture & Tech Stack
+
+  User ⟶ FastAPI (Backend)
+  ⬇️
+  +---------------------------+
+  | Supervisory Agent |
+  | ↳ Weather Agent |
+  | ↳ Inventory Agent |
+  | ↳ Labor Agent |
+  +---------------------------+
+
+  Tech Stack:
+
+  Backend: FastAPI (Python 3.11)
+
+  Agents: BEE-AI Framework
+
+  APIs: Maximo REST APIs, Open-Meteo, wttr.in
+
+  Deployment: IBM Cloud Code Engine, IBM Cloud Container Registry
+
+
+  wxo_agent_name: "supervisory_agent"
+  import_script_path: ""
+  is_customizable: "no"
+  tile_image_path: ""
+  env:
+  - MAXIMO_APIKEY
+  - MAXIMO_BASE_URL
+  - IAM_API_KEY
+  - WATSONX_API_KEY
+  - WATSONX_PROJECT_ID
+  - WATSONX_API_URL
