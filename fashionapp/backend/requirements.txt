@@ -28,7 +28,7 @@ langchain-core==0.3.35
 langchain-ibm==0.3.6
 langchain-text-splitters==0.3.6
 langgraph==0.2.73
-langgraph-checkpoint==2.0.15
+langgraph-checkpoint==3.0.0
 langgraph-sdk==0.1.51
 langsmith==0.3.8
 lomond==0.3.3
