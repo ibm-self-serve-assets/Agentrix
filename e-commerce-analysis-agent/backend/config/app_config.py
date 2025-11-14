@@ -8,7 +8,7 @@ class ModelEnum(str, Enum):
     # Models that are good at reasoning
     LLAMA_3_70_B_INSTRUCT = 'meta-llama/llama-3-3-70b-instruct'
     GRANITE_3_8_B_INSTRUCT = 'ibm/granite-3-8b-instruct'
-    MISTRAL_LARGE = 'mistralai/mistral-large'
+    MISTRAL_LARGE = 'mistralai/mistral-medium-2505'
     LLAMA_3_90_B_VISION = 'meta-llama/llama-3-2-90b-vision-instruct'
 
 class PromptEnum(str, Enum):

@@ -1,17 +1,17 @@
-fastapi
-uvicorn[standard]
-langchain
-langchain-core
-langchain_community
-langchain_ibm
-langchain_huggingface
-ibm_watsonx_ai
-pymupdf
-pymilvus
+fastapi == 0.115.12
+uvicorn[standard] == 0.34.1
+langchain == 0.3.23
+langchain-core == 0.3.52
+langchain_community ==  0.3.21
+langchain_ibm == 0.3.10
+langchain_huggingface == 0.1.2
+ibm_watsonx_ai == 1.3.8
+pymupdf 
+pymilvus == 2.5.6
 pyarrow
-tavily-python
-langchain-experimental
-mistletoe
+tavily-python == 0.5.4
+langchain-experimental == 0.3.4
+mistletoe == 1.4.0
 python-docx
 hf_xet
 git+https://github.com/PyFPDF/fpdf2.git@master
