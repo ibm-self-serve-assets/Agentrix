@@ -32,7 +32,7 @@ langgraph-checkpoint==2.0.15
 langgraph-sdk==0.1.51
 langsmith==0.3.8
 lomond==0.3.3
-marshmallow==3.26.1
+marshmallow==3.26.2
 msgpack==1.1.0
 multidict==6.1.0
 mypy-extensions==1.0.0
