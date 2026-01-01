@@ -16,7 +16,7 @@
     "carbon-components": "^10.58.12",
     "carbon-components-react": "^8.54.0",
     "cors": "^2.8.5",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
